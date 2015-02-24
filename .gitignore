@@ -1,0 +1,14 @@
+*~
+*.fastq
+*.fq
+*.bam
+*.bam.bai
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.fasta*
+*.vcf
+*.swp
