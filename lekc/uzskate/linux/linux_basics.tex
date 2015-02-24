@@ -1,0 +1,37 @@
+\section{Basic linux commands}
+Here will be briefly explained some basic linux commands.
+For information about more commands, feel free to consult with the internet.
+\subsection{Getting around}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \texttt{ls} & list directory contents \\
+%  \textbf{cd} & \textbf{change directory} \\
+  \texttt{cd} \textit{dirname} & change current directory to \textit{dirname} \\
+  \texttt{cd \textasciitilde} & go to home directory (default directory) \\
+  \texttt{cd ..} & go one directory up \\
+  \texttt{pwd} & print name of current directory \\
+  \texttt{mkdir} \textit{dirname} & make a new directory named \textit{dirname}\\
+  \texttt{man} \textit{command} & show manual for \textit{command} \\
+\end{tabular}
+
+\subsection{File manipulation}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+%  cp & copy files and directories
+%\textit{filename1} to \textit{filename2}
+%  \textbf{cp} & \textbf{copy} \\
+  \texttt{cp} \textit{filename1} \textit{filename2} & copy file \\
+  \texttt{cp -r} \textit{dirname1} \textit{dirname2} & copy directory \\
+  \texttt{mv} \textit{name1} \textit{name2} & move file or directory (can be used for renaming) \\
+  \texttt{rm} \textit{filename} & remove file (you won't be able to recover removed file) \\
+  \texttt{rm -r} \textit{dirname} & remove directory and its contents \\
+  \texttt{more} \textit{filename} & command for paging through text file one screenful at a time \\
+  \texttt{less} \textit{filename} & similar as more. Better for viewing large text files \\
+
+%cat head wc
+\end{tabular}
+\subsection{Input/Output redirection}
+\subsection{Filters}
+\subsection{Pattern matching}
