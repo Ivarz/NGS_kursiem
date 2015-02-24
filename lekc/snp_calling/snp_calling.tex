@@ -18,6 +18,16 @@
   }
 }
 
+\newcommand{\tmapWithRG}[3]{\texttt{tmap map3 -f #1 \textbackslash \\
+    -r #2 \textbackslash \\
+    -R "@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
+    -i fastq \textbackslash \\
+    -o 2 \textbackslash \\
+    -s #3
+  }
+}
+
+
 \newcommand{\sortbam}[2]{\texttt{samtools sort #1 \textbackslash \\ #2}}
 
 \newcommand{\reheader}[2]{\texttt{samtools view -H #1 \textbackslash \\
@@ -36,6 +46,7 @@
 
 
 \begin{document}
+
 \begin{frame}{SNP calling}
   \frametitle{Pipeline overview}
   \includegraphics[width=\linewidth, keepaspectratio]{pic/pipe_overview.png}
@@ -44,7 +55,7 @@
 %Prepare reference genome and map reads
 \begin{frame}{Read mapping}
   \begin{itemize}
-    \item Index reference genome (need to do it only once per reference)
+    \item Index reference genome (need to do it only once per reference per mapping tool)
   \end{itemize}
   \refindex{reference.fasta}
   \pause
@@ -73,7 +84,7 @@
   \framesubtitle{The header}
     \begin{itemize}
       \item Let's look at the bam header
-     \end{itemize}
+    \end{itemize}
   \texttt{samtools view -H mapped\_reads.bam} \\~\\
   \includegraphics[width=\linewidth, keepaspectratio]{pic/bam_head.png}
 \end{frame}
@@ -86,8 +97,13 @@
   \reheader{mapped\_reads.bam}{mapped\_reads.reheaded.bam}
 \end{frame}
 
+\begin{frame}{Getting already modified header}
+  \begin{itemize}
+    \item Alternatively, we can specify the sample name during the mapping process
+  \end{itemize}
+  \tmapWithRG{reference.fasta}{reads.fastq}{mapped\_reads.bam}
+\end{frame}
 %Lets change header give the mapper our sample name and sequencing platform
-
 
 %Call variants
 \begin{frame} {Variant calling}
@@ -127,7 +143,7 @@
   \reheader{mapped\_reads.bam}{mapped\_reads.reheaded.bam}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Summary of used commands}
 
   \begin{itemize}
     \item Mapped read sorting
@@ -149,7 +165,26 @@
   \sortbam{mapped\_reads.reheaded.bam}{mapped\_reads.reheaded.sorted}\\
   \samtoolssnp{reference.fasta}{mapped\_reads.reheaded.sorted.bam}{variants.samtools.vcf}
 \end{frame}
-
+  
+\begin{frame}
+  \begin{center}
+    \includegraphics[width=\linewidth, keepaspectratio]{pic/mypipeline.png}
+  \end{center}
+\end{frame}
 %GATK pipeline uz hromosomas fragmentu
-%Lets change header so it includes our sample name
+
+\begin{frame}
+  \Huge To run pipeline, just type:\\~\\
+  \texttt{bash my\_pipeline.sh}
+\end{frame}
+
+\begin{frame}{Your task}
+Perform variant calling using following tools:
+  \begin{itemize}
+    \item For read mapping - BWA (also remember to index reference genome)
+    \item Samtools for bam sorting
+  \end{itemize}
+\end{frame}
+
+%bwa mem reference.fasta reads.fastq
 \end{document}
