@@ -1,5 +1,5 @@
 \section{\textit{De-novo} assembly of sequenced reads}
-\subsection{Installation of relevant tools}
+\subsection{Installation of \denovo~assembler}
 For \denovo~assembly we will use \texttt{mira} assembler.
 You can download it from \url{http://sourceforge.net/projects/mira-assembler/}.
 Click on Files $\rightarrow$ MIRA $\rightarrow$ stable. Rightclick on \texttt{mira\_4.0.2\_linux-gnu\_x86\_64\_static.tar.bz2}
@@ -25,3 +25,48 @@ to find the compiled binary files in the folder and copy them in appropriate dir
 \texttt{cd bin} \\
 \texttt{cp mira \textasciitilde/\binDir} \\
 \texttt{cd} \\
+
+%TODO: uztaisīt direktoriju denovo ngswrkdirā un tur iekopēt fastq failu un izveidot miras manifestfailu
+MIRA needs a manifest file for performing \denovo~assembly.
+We will create a basic manifest file. 
+Our manifest file will consist of 5 entries. From MIRA's manual, these entries are:
+%\begin{itemize}
+%  \item \textbf{project =} tells the assembler the name you wish to give to the whole assembly project. MIRA will use that name throughout
+%  the whole assembly for naming directories, files and a couple of other things.
+%  You can name the assembly anyway you want, you should however restrain yourself and use only alphanumeric characters
+%  and perhaps the characters plus, minus and underscore. Using slashes or backslashes here is a recipe for catastrophe.
+%  \item \textbf{job =} tells the assembler what kind of data it should expect and how it should assemble it.
+%  You need to make your choice mainly in three steps and in the end concatenate your choices to the [job=] entry of the
+%  manifest:
+%  \begin{enumerate}
+%    \item 
+%  \end{enumerate}
+%\end{itemize}
+\begin{itemize}
+  \item \textbf{project} - name of our assemblies project. The project name will be used by MIRA in project's directory naming
+  \item \textbf{job} -  tells the assembler whether
+  \begin{enumerate}
+    \item we want to perform \denovo~assembly or map reads against reference genome
+    \item genomic DNA or transcripts were sequenced
+    \item we want accurate (slow) or draft (fast) assembly
+  \end{enumerate}
+  \item \textbf{readgroup} - tells assembler which reads can be pooled together when assembling reads from multiple sequencing technologies
+  \item \textbf{data} - tells the assembler where are our reads
+  \item \textbf{technology} - tells the assembler what sequencing technology was used for generating reads
+\end{itemize}
+To create manifest file, we will use text editor \texttt{nano}. To start the text editor, type \\~\\
+\texttt{nano}\\
+
+and the editor will open. Now to create the manifest file, in the text editor type:\\~\\
+\texttt{project=\denovoReads\_Assembly\\
+job=denovo,genome,draft\\
+readgroup\\
+data=\denovoReads.fastq\\
+technology=iontor} \\
+
+To save the text file hit \texttt{Ctrl o} enter the name of the file (e.g. \texttt{\denovoReads.mnfst}),
+hit enter to save and \texttt{Ctrl x} to quit nano. To launch MIRA, type:\\~\\
+\texttt{\textasciitilde/\binDir/mira \denovoReads.mnfst}\\
+
+If you wish to gain finer control of some aspects of the assembling process,
+then, please, do refer to the MIRA's manual.
