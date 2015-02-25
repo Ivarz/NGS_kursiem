@@ -1,0 +1,40 @@
+We will need a tool named samtools and we will download it with \git.
+To install samtools, type:\\~\\
+\texttt{cd \progDir}\\
+\texttt{git clone https://github.com/samtools/samtools}\\
+\texttt{git clone https://github.com/samtools/htslib}\\
+\texttt{cd samtools}\\
+\texttt{make}\\
+
+To test whether samtools compiled correctly, type:\\~\\
+\texttt{./samtools}\\
+
+If you see the program's interface, then the program was compiled correctly.
+Move compiled binary file to a directory where we will store our compiled software.\\~\\
+\texttt{cp samtools \textasciitilde/\binDir\\
+cd}\\
+
+Installation of \IonTorrent~mapping software \texttt{tmap}:\\~\\
+%https://github.com/iontorrent/TS/tree/master/Analysis/TMAP
+\texttt{cd \progDir}\\
+\texttt{git clone git://github.com/iontorrent/TMAP.git}\\
+\texttt{cd TMAP}\\
+\texttt{git submodule init}\\
+\texttt{git submodule update}\\
+\texttt{sh autogen.sh}\\
+\texttt{./configure}\\
+\texttt{make}\\
+
+Move the compiled binary file to our bin folder:\\~\\
+\texttt{cp tmap \textasciitilde/bin\\}
+%cp ~/data/samtools. .
+
+%(unzip)
+%unzip samtools.zip
+
+%cd samtools-develop
+
+%(make)
+%(zlib1g-dev)
+%(libncurses5-dev)
+

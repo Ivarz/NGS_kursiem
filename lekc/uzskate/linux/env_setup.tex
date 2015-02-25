@@ -1,46 +1,45 @@
 \section{Setup of the working environment}
 Let's create directories for our data:\\~\\
-\texttt{mkdir programs \\
-mkdir NGS\_data \\
-mkdir bin}\\~\\
+\texttt{mkdir \progDir \\
+mkdir \workDir \\
+mkdir \binDir}\\~\\
 
 %wget https://github.com/samtools/samtools/archive/develop.zip
-Many of the open source tools are deposited in the \textit{github.com} repository.
-To download software from github.com easily, we will use a tool called \git.
-
-\Git~is already preinstalled on our servers, however, on your own Ubuntu servers
+Many of the open source tools are deposited in the \url{https://github.com} repository.
+To download software from \url{https://github.com} easily, we will use a tool called \git.
+\git~is already preinstalled on our servers, however, on your own Ubuntu servers
 you can install it by typing:\\~\\
 \texttt{sudo apt-get install git}\\
 
-We will need a tool named samtools and we will download it with \git.
-To install samtools, type:\\~\\
-\texttt{cd programs}\\
-\texttt{git clone https://github.com/samtools/samtools}\\
-\texttt{git clone https://github.com/samtools/htslib}\\
-\texttt{cd samtools}\\
-\texttt{make}\\
+%We will need a tool named samtools and we will download it with \git.
+%To install samtools, type:\\~\\
+%\texttt{cd \progDir}\\
+%\texttt{git clone https://github.com/samtools/samtools}\\
+%\texttt{git clone https://github.com/samtools/htslib}\\
+%\texttt{cd samtools}\\
+%\texttt{make}\\
 
-To test whether samtools compiled correctly, type:\\~\\
-\texttt{./samtools}\\
+%To test whether samtools compiled correctly, type:\\~\\
+%\texttt{./samtools}\\
 
-If you see the program's interface, then the program was compiled correctly.
-Move compiled binary file to a directory where we will store our compiled software.\\~\\
-\texttt{cp samtools \textasciitilde/bin\\
-cd}\\
+%If you see the program's interface, then the program was compiled correctly.
+%Move compiled binary file to a directory where we will store our compiled software.\\~\\
+%\texttt{cp samtools \textasciitilde/\binDir\\
+%cd}\\
 
-Installation of IonTorrent mapping software \textit{tmap}:\\~\\
-%https://github.com/iontorrent/TS/tree/master/Analysis/TMAP
-\texttt{cd programs}\\
-\texttt{git clone git://github.com/iontorrent/TMAP.git}\\
-\texttt{cd TMAP}\\
-\texttt{git submodule init}\\
-\texttt{git submodule update}\\
-\texttt{sh autogen.sh}\\
-\texttt{./configure}\\
-\texttt{make}\\
+%Installation of \IonTorrent~mapping software \texttt{tmap}:\\~\\
+%%https://github.com/iontorrent/TS/tree/master/Analysis/TMAP
+%\texttt{cd \progDir}\\
+%\texttt{git clone git://github.com/iontorrent/TMAP.git}\\
+%\texttt{cd TMAP}\\
+%\texttt{git submodule init}\\
+%\texttt{git submodule update}\\
+%\texttt{sh autogen.sh}\\
+%\texttt{./configure}\\
+%\texttt{make}\\
 
-Move the compiled binary file to our bin folder:\\~\\
-\texttt{cp tmap \textasciitilde/bin\\}
+%Move the compiled binary file to our bin folder:\\~\\
+%\texttt{cp tmap \textasciitilde/bin\\}
 %cp ~/data/samtools. .
 
 %(unzip)

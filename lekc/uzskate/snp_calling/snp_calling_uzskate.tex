@@ -1,14 +1,19 @@
 \section{Building variant calling pipeline}
-We have \textit{IonTorrent} targeted resequencing data from human chromosomes 1., 2. and 19. 
+We have \IonTorrent~targeted resequencing data from human chromosomes 1., 2. and 19. 
 Our task is to find all nonsynonymous and stop mutations present in the data
 and to automatize this process by building data analysis pipeline.
-
+To accomplish this task we can divide our work in following subtasks:
 \begin{itemize}
-  \item Obtaining reference genome
+  \item Installation of relevant tools
+  \item Obtaining of reference genome
   \item Read mapping against reference genome
   \item Variant calling
   \item Variant annotation
   \item Filtering of nonsynonymous and stop mutation variants
   \item Pipeline building
 \end{itemize}
-\subsection{Obtaining reference genome}
+\subsection{Obtaining of reference genome}
+We begin our task by obtaining reference genome. We will download reference
+genome from database made by University of California, Santa Cruz.
+The web address of the database is \url{http://genome.ucsc.edu/}
+%Downloads->Human
