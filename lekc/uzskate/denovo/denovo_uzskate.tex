@@ -1,0 +1,27 @@
+\section{\textit{De-novo} assembly of sequenced reads}
+\subsection{Installation of relevant tools}
+For \denovo~assembly we will use \texttt{mira} assembler.
+You can download it from \url{http://sourceforge.net/projects/mira-assembler/}.
+Click on Files $\rightarrow$ MIRA $\rightarrow$ stable. Rightclick on \texttt{mira\_4.0.2\_linux-gnu\_x86\_64\_static.tar.bz2}
+and \texttt{Copy link address}.
+%Click download. New page will open and copy link address of \textit{direct link}
+To download it on our linux server, we will be using command \texttt{wget}. In linux terminal type: \\~\\
+\texttt{cd \textasciitilde/\progDir} \\
+\texttt{wget -O mira.tar.bz2} \\
+
+and paste the copied location.
+%wget -O mira.tar.bz2 http://downloads.sourceforge.net/project/mira-assembler/MIRA/stable/mira_4.0.2_linux-gnu_x86_64_static.tar.bz2?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fmira-assembler%2F%3Fsource%3Dtyp_redirect&ts=1424879102&use_mirror=cznic
+%We need to know the location of the program, and we
+The program will be downloaded in our \texttt{\textasciitilde/\progDir} directory. 
+The downloaded software is archived in .tar.bz2 format, therefore we need to extract it from archive.
+To extract it from archive, type in terminal:\\~\\
+\texttt{tar -jxvf mira.tar.bz2}\\
+
+A new folder named \texttt{mira\_4.0.2\_linux-gnu\_x86\_64\_static} will appear.
+This is our extracted software.
+MIRA is already precompiled for us, so we just need
+to find the compiled binary files in the folder and copy them in appropriate directory: \\~\\
+\texttt{cd mira\_4.0.2\_linux-gnu\_x86\_64\_static} \\
+\texttt{cd bin} \\
+\texttt{cp mira \textasciitilde/\binDir} \\
+\texttt{cd} \\
