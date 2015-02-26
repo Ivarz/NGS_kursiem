@@ -20,7 +20,8 @@ To extract it from archive, type in terminal:\\~\\
 A new folder named \texttt{mira\_4.0.2\_linux-gnu\_x86\_64\_static} will appear.
 This is our extracted software.
 MIRA is already precompiled for us, so we just need
-to find the compiled binary files in the folder and copy them to appropriate directory: \\~\\
+to find the compiled executable files in the folder and install them locally 
+(or plainly speaking - copy them to our \binDir): \\~\\
 \texttt{cd mira\_4.0.2\_linux-gnu\_x86\_64\_static} \\
 \texttt{cd bin} \\
 \texttt{cp mira \textasciitilde/\binDir} \\
@@ -73,7 +74,8 @@ technology=iontor} \\
 
 To save the text file hit \texttt{Ctrl o}, enter the name of the file (e.g. \texttt{\denovoReads.mnfst}),
 hit \texttt{Enter} to save and \texttt{Ctrl x} to quit \texttt{nano}. To launch MIRA, type:\\~\\
-\texttt{\textasciitilde/\binDir/mira \denovoReads.mnfst}\\
+%\texttt{\textasciitilde/\binDir/mira \denovoReads.mnfst}\\
+\texttt{mira \denovoReads.mnfst}\\
 
 If you wish to gain finer control of some aspects of the assembling process,
 then, please, do refer to the MIRA's manual.
