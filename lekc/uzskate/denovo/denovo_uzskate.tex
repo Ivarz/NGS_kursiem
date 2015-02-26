@@ -20,13 +20,20 @@ To extract it from archive, type in terminal:\\~\\
 A new folder named \texttt{mira\_4.0.2\_linux-gnu\_x86\_64\_static} will appear.
 This is our extracted software.
 MIRA is already precompiled for us, so we just need
-to find the compiled binary files in the folder and copy them in appropriate directory: \\~\\
+to find the compiled binary files in the folder and copy them to appropriate directory: \\~\\
 \texttt{cd mira\_4.0.2\_linux-gnu\_x86\_64\_static} \\
 \texttt{cd bin} \\
 \texttt{cp mira \textasciitilde/\binDir} \\
-\texttt{cd} \\
+\texttt{cd \textasciitilde} \\
 
 %TODO: uztaisīt direktoriju denovo ngswrkdirā un tur iekopēt fastq failu un izveidot miras manifestfailu
+Let's create a seperate directory for our \denovo~assembly project 
+and copy the reads in it:\\~\\
+\texttt{cd \workDir}\\
+\texttt{mkdir \denovoDir}\\
+\texttt{cd \denovoDir}\\
+\texttt{cp \textasciitilde/\dataDir/\denovoReads.fastq~.}\\
+
 MIRA needs a manifest file for performing \denovo~assembly.
 We will create a basic manifest file. 
 Our manifest file will consist of 5 entries. From MIRA's manual, these entries are:
@@ -57,15 +64,15 @@ Our manifest file will consist of 5 entries. From MIRA's manual, these entries a
 To create manifest file, we will use text editor \texttt{nano}. To start the text editor, type \\~\\
 \texttt{nano}\\
 
-and the editor will open. Now to create the manifest file, in the text editor type:\\~\\
+and the editor will open. Now, to create the manifest file, in the text editor type:\\~\\
 \texttt{project=\denovoReads\_Assembly\\
 job=denovo,genome,draft\\
 readgroup\\
 data=\denovoReads.fastq\\
 technology=iontor} \\
 
-To save the text file hit \texttt{Ctrl o} enter the name of the file (e.g. \texttt{\denovoReads.mnfst}),
-hit enter to save and \texttt{Ctrl x} to quit nano. To launch MIRA, type:\\~\\
+To save the text file hit \texttt{Ctrl o}, enter the name of the file (e.g. \texttt{\denovoReads.mnfst}),
+hit \texttt{Enter} to save and \texttt{Ctrl x} to quit \texttt{nano}. To launch MIRA, type:\\~\\
 \texttt{\textasciitilde/\binDir/mira \denovoReads.mnfst}\\
 
 If you wish to gain finer control of some aspects of the assembling process,

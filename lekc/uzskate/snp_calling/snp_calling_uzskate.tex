@@ -5,15 +5,31 @@ and to automatize this process by building data analysis pipeline.
 To accomplish this task we can divide our work in following subtasks:
 \begin{itemize}
   \item Installation of relevant tools
-  \item Obtaining of reference genome
+  \item Obtaining of reference sequences
   \item Read mapping against reference genome
   \item Variant calling
   \item Variant annotation
   \item Filtering of nonsynonymous and stop mutation variants
   \item Pipeline building
 \end{itemize}
-\subsection{Obtaining of reference genome}
-We begin our task by obtaining reference genome. We will download reference
-genome from database made by University of California, Santa Cruz.
-The web address of the database is \url{http://genome.ucsc.edu/}
+\input{snp_calling/obt_ref_seq.tex}
+%\subsection{Obtaining reference sequences}
+%We begin our task by obtaining reference genome. We will download reference
+%sequences in a seperate directory to avoid file cluttering. Let's make
+%a new directory in our \texttt{\workDir}~named \texttt{\reseqDir}, and there we will create
+%a seperate folder \texttt{\refDir} for our reference sequences:\\~\\
+%\texttt{cd \textasciitilde}\\
+%\texttt{cd \workDir}\\
+%\texttt{mkdir \reseqDir}\\
+%\texttt{cd \reseqDir}\\
+%\texttt{mkdir \refDir}\\
+%\texttt{cd \refDir}\\
+
+%Our reference sequences can be accessed from a database made by
+%University of California, Santa Cruz.
+%The web address of the database is \url{http://genome.ucsc.edu/}.
+%To find the necessary references sequences for chromosomes 1., 2. and 19.
+%click on \texttt{Downloads} $\rightarrow$ \texttt{human} $\rightarrow$
+%\texttt{Data set by chromosome}. Right click on \texttt{chr1.fa.gz}
+%and \texttt{Copy link location}.
 %Downloads->Human
