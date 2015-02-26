@@ -1,10 +1,38 @@
 \section{Setup of the working environment}
-Let's create directories for our data:\\~\\
-\texttt{mkdir \progDir \\
-mkdir \workDir \\
-mkdir \binDir}\\~\\
+%Let's create directories for our data:\\~\\
+%\texttt{mkdir \progDir \\
+%mkdir \workDir \\
+%mkdir \binDir}\\~\\
+Since we do not have the administrator's rights on this server, we can't install
+software on the system. However, we can still install software locally in our home
+directories. We will create a special directory where all our executables will be stored.
+Let's create this directory and name it \texttt{\binDir}. In linux terminal type:\\~\\
+\texttt{mkdir \binDir}\\
 
+Let's make this directory special - every executable file we put there, we will be able
+to easily execute, just by typing the executable's file name from anywhere in the system.
+To achieve this, we will be adding \texttt{\textasciitilde/\binDir}~folder to the \texttt{\$PATH} 
+system's environment variable by editing a text file named \texttt{.bashrc} using text editor \texttt{nano}.
+In linux terminal type:\\~\\
+\texttt{nano \textasciitilde/.bashrc}\\
+
+Text editor will open the file and you can edit it. Navigate to the bottom of the text file using arrows
+and type in following text:\\~\\
+\texttt{export PATH=\$PATH:\textasciitilde/\binDir}\\
+
+Hit \texttt{Ctrl o} and \texttt{Enter} to save file and \texttt{Ctrl x} to exit.
+Reload \texttt{.bashrc}:\\~\\
+\texttt{source .bashrc}\\
+
+\begin{framed}
+\texttt{\$PATH} variable contains a list of directories that the system will look in, when we are
+entering a command. To view contents of \texttt{\$PATH}, type in terminal:\\~\\
+\texttt{echo \$PATH}\\
+\end{framed}
+To install software we will simply have to copy executable to our special directory \texttt{\binDir}.
+%The installation will be simply copying of executables to \texttt{\textasciitilde/\binDir}~
 %wget https://github.com/samtools/samtools/archive/develop.zip
+
 Many of the open source tools are deposited in the \url{https://github.com} repository.
 To download software from \url{https://github.com} easily, we will use a tool called \git.
 \git~is already preinstalled on our servers, however, on your own Ubuntu servers

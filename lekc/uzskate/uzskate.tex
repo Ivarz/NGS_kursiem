@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{framed}
 \usepackage{fontspec}
 \usepackage{hhline}
 \usepackage{hyperref}
@@ -6,15 +7,50 @@
 \newcommand{\Git}{\texttt{Git}}
 \newcommand{\IonTorrent}{\textit{IonTorrent}}
 \newcommand{\binDir}{binaries}
+\newcommand{\fbinDir}{\textasciitile/\binDir}
 \newcommand{\progDir}{programs}
 \newcommand{\workDir}{ngs\_work}
 \newcommand{\denovoDir}{denovo}
 \newcommand{\reseqDir}{reseq}
+\newcommand{\refSeq}{chr\_merged.fa}
 \newcommand{\refDir}{ref}
 \newcommand{\refFullDir}{\texttt{\textasciitile/\workDir/\reseqDir/ref}}
 \newcommand{\denovo}{\textit{de-novo}}
 \newcommand{\denovoReads}{readsfordenovo}
 \newcommand{\dataDir}{data}
+%Reference genome indexing
+\newcommand{\refindex}[1]{\texttt{\fbinDir/tmap index -f #1}}
+%map reads
+\newcommand{\tmap}[3]{\texttt{\fbinDir/tmap map3 -f #1 \textbackslash \\
+    -r #2 \textbackslash \\
+    -i fastq \textbackslash \\
+    -o 2 \textbackslash \\
+    -s #3
+  }
+}
+\newcommand{\tmapWithRG}[3]{\texttt{\fbinDir/tmap map3 -f #1 \textbackslash \\
+    -r #2 \textbackslash \\
+    -R "@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
+    -i fastq \textbackslash \\
+    -o 2 \textbackslash \\
+    -s #3
+  }
+}
+\newcommand{\sortbam}[2]{\texttt{\fbinDir/samtools sort #1 \textbackslash \\ #2}}
+
+\newcommand{\reheader}[2]{\texttt{\fbinDir/samtools view -H #1 \textbackslash \\
+    | sed 's/SM:NOSM/SM:Sample1/' \textbackslash \\
+    | samtools reheader - mapped\_reads.bam \textbackslash \\
+    > #2
+  }
+}
+\newcommand{\samtoolssnp}[3]{\texttt{\fbinDir/samtools mpileup -uf #1 \textbackslash \\
+    #2 \textbackslash \\
+    | \fbinDir/bcftools call -cv \textbackslash \\
+    | \fbinDir/vcfutils.pl varFilter > #3
+  }
+}
+
 \begin{document}
 %\input{title/title.tex}
 \input{linux/linux_basics.tex}

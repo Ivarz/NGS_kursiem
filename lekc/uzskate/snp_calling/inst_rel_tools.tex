@@ -1,0 +1,85 @@
+\subsection{Tool installation}
+\subsubsection{Installation of \IonTorrent~mapping software}
+To detect variants present in the data we need to map sequencing
+reads against reference sequence. For reads generated with \IonTorrent~
+sequencing platform we will use program \texttt{tmap}.
+%Different short read mappers perform
+%with various success depending on sequencing platform. 
+
+\texttt{tmap} and its compilation instructions can
+be found at \url{https://github.com/iontorrent/TS/tree/master/Analysis/TMAP}.
+Installation instructions:\\~\\
+%https://github.com/iontorrent/TS/tree/master/Analysis/TMAP
+\texttt{cd \textasciitilde/\progDir}\\
+\texttt{git clone git://github.com/iontorrent/TMAP.git}\\
+\texttt{cd TMAP}\\
+\texttt{git submodule init}\\
+\texttt{git submodule update}\\
+\texttt{sh autogen.sh}\\
+\texttt{./configure}\\
+\texttt{make}\\
+
+Lets test the program to confirm that it was compiled successfully:\\~\\
+\texttt{./tmap}\\
+
+If you see the programs interface, the program was installed successfully.
+Move the compiled binary file to our \texttt{\binDir}~folder:\\~\\
+\texttt{cp tmap \textasciitilde/\binDir}\\
+%cp ~/data/samtools. .
+%(unzip)
+%unzip samtools.zip
+%cd samtools-develop
+%(make)
+%(zlib1g-dev)
+%(libncurses5-dev)
+
+We will also need two tools named \texttt{samtools} and \texttt{bcftools} which are used for
+manipulation of mapped reads and variation calling. You can obtain these tools from
+\url{http://sourceforge.net/projects/samtools/}. Click on \texttt{Files} $\rightarrow$ \texttt{samtools} $\rightarrow$ \texttt{1.2}
+Rightclick on \texttt{samtools-1.2.tar.bz2} and choose \texttt{Copy link address}. 
+We will download these tools in directory \texttt{\progDir}:\\~\\
+\texttt{cd \textasciitilde/\progDir}\\
+\texttt{wget -O samtools.tar.bz2}\\
+paste the copied location and hit \texttt{Enter}.
+
+Now, repeat this process for \texttt{bcftools}:\\~\\
+\texttt{wget -O bcftools.tar.bz2}\\
+paste the copied location and hit \texttt{Enter}.
+
+The tools are compressed in \texttt{.tar.bz2}
+format, so we need to extract them:\\~\\
+\texttt{tar -jxvf samtools.tar.bz2}\\
+\texttt{tar -jxvf bcftools.tar.bz2}\\
+
+\begin{framed}
+Note that if we had a lot more files to extract and it would be too
+time consuming to manually extract them, we could use a \texttt{for}
+loop and pattern matching to extract archives automatically:\\~\\
+\texttt{for archive in *.tar.bz2; do}\\
+\texttt{\indent tar -jxvf \$archive}\\
+\texttt{done}\\
+\end{framed}
+%We will download its
+%source code and library that it depends on with \git.
+%To to download \texttt{samtools} and its library \texttt{htslib}, type:\\~\\
+%\texttt{cd \progDir}\\
+%\texttt{git clone https://github.com/samtools/samtools}\\
+%\texttt{git clone https://github.com/samtools/htslib}\\
+
+We have downloaded and extracted source code of the tools, but to make
+these tools usable, we need to compile the source code. Source code compiling
+is performed with command \texttt{make}:\\~\\
+\texttt{cd samtools-1.2}\\
+\texttt{make}\\
+%\texttt{cd ../../bcftools-1.2}\\
+
+If (hopefully) no errors were encountered, then \texttt{samtools} was compiled correctly. type:\\~\\
+\texttt{./samtools}\\
+
+to test the tool. If you see the program's interface, then the program was compiled successfully.
+Move compiled binary file to a directory where we will store our compiled software:\\~\\
+\texttt{cp samtools \textasciitilde/\binDir\\}
+
+Repeat the same process for \texttt{bcftools}
+(go to \texttt{bcftools} source code directory,
+compile it and copy resulting binary file to \texttt{\textasciitilde/\binDir})

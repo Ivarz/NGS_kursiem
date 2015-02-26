@@ -1,7 +1,6 @@
 \subsection{Obtaining reference sequences}
-We begin our task by obtaining reference genome. We will download reference
-sequences in a seperate directory to avoid file cluttering. Let's make
-a new directory in our \texttt{\workDir}~named \texttt{\reseqDir}, and there we will create
+We will download reference sequences in a seperate directory to avoid file cluttering. Let's make
+a new directory in our \texttt{\workDir}~directory named \texttt{\reseqDir}, and there we will create
 a seperate folder \texttt{\refDir} for our reference sequences:\\~\\
 \texttt{cd \textasciitilde}\\
 \texttt{cd \workDir}\\
@@ -19,11 +18,16 @@ click on \texttt{Downloads} $\rightarrow$ \texttt{human} $\rightarrow$
 and choose \texttt{Copy link location}. In terminal type\\~\\
 \texttt{wget} \\
 
-and paste the copied location. The reference sequence is compressed in .gz
+paste the copied location and hit \texttt{Enter}. The reference sequence is compressed in \texttt{.gz}
 format, so we need to extract it:\\~\\
 \texttt{gzip -d chr1.fa.gz}\\
 
-File chr1.fa will appear in our folder.
+File \texttt{chr1.fa} will appear in our folder.
 
 Repeat the process for chromosomes 2. and 19.
+
+After we have obtained and extracted our reference sequences, we need to concatenate them.
+To accomplish this task we will use command \texttt{cat}:\\~\\
+\texttt{cat chr1.fa chr2.fa chr19.fa > \refSeq}\\
+
 
