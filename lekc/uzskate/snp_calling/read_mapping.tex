@@ -1,4 +1,14 @@
 \subsection{Read mapping against reference sequence}
+%TODO fastq
+The sequenced reads we obtain from sequencing platform usually are in \textit{FASTQ} format.
+Each record in \textit{FASTQ} file consists of four entries:
+\begin{enumerate}
+  \item read ID, beginning with symbol @
+  \item DNA sequence of read
+  \item symbol +
+  \item \textit{ASCII} encoded quality of each nucleotide in read
+\end{enumerate}
+
 To enable read mapper to efficiently read and process reference sequence, we need to
 index reference sequence using mapping software's provided indexing function. Often generated
 indexes are incompatible between different read mappers, as a consequence, almost every read
@@ -10,6 +20,16 @@ To perform reference sequence indexing with \texttt{tmap} software, type in linu
 %TODO par map1-2-3 pastastit un pateikt rtfm
 To perform the actual read mapping against our reference, type:\\~\\
 \tmap{\refSeq}{\mapReads.fastq}{\mapReads\_mapped.bam}\\
+
+We have obtained \textit{BAM} file. \textit{BAM} stands for \textbf{B}inary S\textbf{AM} file.
+\textit{SAM}, in turn, stands for \textbf{S}equence \textbf{A}lignment/\textbf{M}ap format.
+Let's find out what is in the \textit{BAM} file using \texttt{samtools}:\\~\\
+\texttt{samtools view \mapReads\_mapped.bam | head -n 20}\\
+
 %TODO aprakstīt katru no soļiem
-\sortbam{\mapReads\_mapped.bam}{\mapReads\_mapped.sorted.bam}\\
-\reheader{\mapReads\_mapped.sorted.bam}{\mapReads\_mapped.sorted.reheaded.bam}
+\reheader{\mapReads\_mapped.bam}{\mapReads\_mapped.reheaded.bam}\\
+%Alternatively, we could define the sample name during mapping process
+\tmapWithRG{\refSeq}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\
+%Variant callers need sorted bam file
+\sortbam{\mapReads\_mapped.reheaded.bam}{\mapReads\_mapped.reheaded.sorted.bam}\\
+
