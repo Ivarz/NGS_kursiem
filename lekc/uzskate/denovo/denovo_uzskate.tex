@@ -37,7 +37,15 @@ then reload \texttt{.bashrc} again:\\~\\
 
 and check the installation again.
 
-%TODO: uztaisīt direktoriju denovo ngswrkdirā un tur iekopēt fastq failu un izveidot miras manifestfailu
+The sequenced reads we obtain from sequencing platform usually are in \textit{FASTQ} format.
+Each record in \textit{FASTQ} file consists of four entries:
+\begin{enumerate}
+  \item read ID, beginning with symbol @
+  \item DNA sequence of read
+  \item symbol +
+  \item \textit{ASCII} encoded quality of each nucleotide in read
+\end{enumerate}
+
 Let's create a seperate directory for our \denovo~assembly project 
 and copy the reads in it:\\~\\
 \texttt{cd \workDir}\\

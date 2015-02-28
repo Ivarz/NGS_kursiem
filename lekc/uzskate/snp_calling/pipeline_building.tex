@@ -1,0 +1,9 @@
+\subsection{Pipeline building}
+%\refindex{\refRel}
+\tmap{\refRel}{\mapReads.fastq}{\mapReads\_mapped.bam}\\~\\
+\tmapWithRG{\refRel}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\~\\
+\reheader{\mapReads\_mapped.bam}{\mapReads\_mapped.reheaded.bam}\\~\\
+\texttt{\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}}\\~\\
+\snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\~\\
+\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\~\\
+

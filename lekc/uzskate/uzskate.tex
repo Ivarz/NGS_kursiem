@@ -17,7 +17,7 @@
 \newcommand{\refFullDir}{\texttt{\textasciitile/\workDir/\reseqDir/ref}}
 \newcommand{\refRel}{\texttt{ref/\refSeq}}
 \newcommand{\denovo}{\textit{de-novo}}
-\newcommand{\denovoReads}{readsForDenovo}
+\newcommand{\denovoReads}{denovo\_reads}
 \newcommand{\dataDir}{data/day1}
 \newcommand{\mapReads}{reseq\_reads}
 \newcommand{\snpEffData}{snpEffData}
@@ -49,8 +49,9 @@
 }
 \newcommand{\samtoolssnp}[3]{\texttt{samtools mpileup -uf #1 \textbackslash \\
   \indent #2 \textbackslash \\
-  \indent | bcftools call -cv \textbackslash \\
-  \indent | vcfutils.pl varFilter > #3
+  \indent | bcftools call -mv --skip-variants indels \textbackslash \\
+%  \indent | vcfutils.pl varFilter > #3
+  \indent > #3
   }
 }
 
@@ -63,10 +64,26 @@
   }
 }
 
+\newcommand{\SnpSiftFilter}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/SnpSift.jar \textbackslash \\
+  \indent filter \textbackslash \\
+  \indent -f #1 \textbackslash \\
+  \indent "ANN[*].EFFECT = 'missense\_variant' || ANN[*].EFFECT = 'stop\_gained'"
+  \indent > #2
+  }
+}
+%pipeline:
+%\refindex{\refRel}
+%\tmap{\refRel}{\mapReads.fastq}{\mapReads\_mapped.bam}\\
+%\tmapWithRG{\refRel}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\
+%\reheader{\mapReads\_mapped.bam}{\mapReads\_mapped.reheaded.bam}\\
+%\texttt{\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}}\\
+%\snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\
+%\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\
 \begin{document}
 %\input{title/title.tex}
   \input{linux/linux_basics.tex}
   \input{linux/env_setup.tex}
   \input{denovo/denovo_uzskate.tex}
   \input{snp_calling/snp_calling_uzskate.tex}
+  \input{snp_calling/pipeline_building.tex}
 \end{document}

@@ -1,2 +1,11 @@
 \subsection{SNP calling}
-\texttt{\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.variants.samtools.vcf}}
+To call SNPs we will use \texttt{samtools}, \texttt{bcftools} and \texttt{vcfutils.pl}.
+Using \texttt{samtools} we will generate our data in \textit{pileup} format which
+is then accessed by \texttt{bcftools} to call SNPs.
+There are two choices of variant callers in \texttt{bcftools}:
+\texttt{--consensus-caller} or \texttt{--multiallelic-caller}. \texttt{consensus-caller} is
+older variant calling model and assumes only biallelic sites. It can miss somatic mutations.
+\texttt{multiallelic-caller} does not have such an asumption and is more sensitive than \texttt{consensus-caller}.
+%that the analyzed sample is biallelic and can miss somatic mutations. In contrast the \texttt{multiallelic-caller}
+\texttt{multiallelic-caller} is recommended for most tasks, and we will also use it. For this tutorial, we will skip insertions/deletions: \\~\\
+\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}

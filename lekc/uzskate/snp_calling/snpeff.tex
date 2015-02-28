@@ -1,4 +1,4 @@
-\subsection{SNP annotation with \texttt{snpEff}}
+\subsection{SNP annotation and filtering with \texttt{snpEff} and \texttt{SnpSift}}
 After generating a list of SNPs in \textit{VCF} format,
 we will use a tool \texttt{snpEff} to predict whether they are causing
 amino acid change.
@@ -26,5 +26,8 @@ and change entry \texttt{data.dir = ./data/} to \texttt{data.dir = \textasciitil
 %\texttt{cd \textasciitilde/\progDir/snpEff}
 %\texttt{nano snpEff.config}
 
-Annotate called variants:\\~\\
-\snpEff{\mapReads.variants.samtools.vcf}{\mapReads.variants.samtools.annotated.vcf}
+To annotate called variants, type:\\~\\
+\snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\
+
+To get SNPs marked as nonsynonymous or stop gained:\\~\\
+\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\
