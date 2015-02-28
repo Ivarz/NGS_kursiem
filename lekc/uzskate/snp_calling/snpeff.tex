@@ -1,0 +1,30 @@
+\subsection{SNP annotation with \texttt{snpEff}}
+After generating a list of SNPs in \textit{VCF} format,
+we will use a tool \texttt{snpEff} to predict whether they are causing
+amino acid change.
+\subsubsection{Setting up and configuring \texttt{snpEff}}
+\texttt{snpEff} is available at \url{http://snpeff.sourceforge.net}.
+To download and install it, type in linux terminal:\\~\\
+\texttt{cd \textasciitilde/\progDir} \\
+\texttt{wget http://sourceforge.net/projects/snpeff/files/snpEff\_latest\_core.zip} \\
+
+paste the copied location and hit \texttt{Enter}. To \texttt{unzip snpEff} type:\\~\\
+\texttt{unzip snpEff\_latest\_core.zip}\\
+
+Unfortunately we wil not be able to launch \texttt{snpEff} from \texttt{\binDir} folder
+and we can leave the software in \texttt{\progDir} directory.
+
+\texttt{snpEff} requires databases to predict effects of SNPs.
+The needed database is already downloaded for us and resides in
+\texttt{\textasciitilde/\dataDir/\snpEffData}. Our task is to 
+configure \texttt{snpEff} to tell it where this database can be found.
+
+After downloading and unzipping of \texttt{snpEff} we will need to
+edit \texttt{snpEff's} configuration file named \texttt{snpEff.config}
+and change entry \texttt{data.dir = ./data/} to \texttt{data.dir = \textasciitilde/\dataDir/\snpEffData/}
+%In linux terminal type:\\~\\
+%\texttt{cd \textasciitilde/\progDir/snpEff}
+%\texttt{nano snpEff.config}
+
+Annotate called variants:\\~\\
+\snpEff{\mapReads.variants.samtools.vcf}{\mapReads.variants.samtools.annotated.vcf}

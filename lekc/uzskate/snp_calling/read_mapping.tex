@@ -11,25 +11,35 @@ Each record in \textit{FASTQ} file consists of four entries:
 
 To enable read mapper to efficiently read and process reference sequence, we need to
 index reference sequence using mapping software's provided indexing function. Often generated
-indexes are incompatible between different read mappers, as a consequence, almost every read
+indexes are incompatible between different read mappers. As a consequence, almost every read
 mapping software has their own indexing algorithms.
 
 To perform reference sequence indexing with \texttt{tmap} software, type in linux terminal:\\~\\
-\texttt{\refindex{\refSeq}}\\
+\texttt{\refindex{\refRel}}\\
 
 %TODO par map1-2-3 pastastit un pateikt rtfm
 To perform the actual read mapping against our reference, type:\\~\\
-\tmap{\refSeq}{\mapReads.fastq}{\mapReads\_mapped.bam}\\
+\tmap{\refRel}{\mapReads.fastq}{\mapReads\_mapped.bam}\\
 
 We have obtained \textit{BAM} file. \textit{BAM} stands for \textbf{B}inary S\textbf{AM} file.
 \textit{SAM}, in turn, stands for \textbf{S}equence \textbf{A}lignment/\textbf{M}ap format.
+
+
 Let's find out what is in the \textit{BAM} file using \texttt{samtools}:\\~\\
 \texttt{samtools view \mapReads\_mapped.bam | head -n 20}\\
 
+Detailed information about \textit{SAM/BAM} file format, see \url{http://samtools.github.io/hts-specs/SAMv1.pdf}.\\~\\
 %TODO aprakstīt katru no soļiem
 \reheader{\mapReads\_mapped.bam}{\mapReads\_mapped.reheaded.bam}\\
-%Alternatively, we could define the sample name during mapping process
-\tmapWithRG{\refSeq}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\
+
+Alternatively, we could have defined the sample name during mapping process,
+using option \texttt{-R} with the complete tab delimited \texttt{RG} line of bam header:\\~\\
+\tmapWithRG{\refRel}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\
+
+\begin{framed}
+Note that the tab is denoted as \texttt{\textbackslash t} in our header line.
+\end{framed}
+
 %Variant callers need sorted bam file
 \sortbam{\mapReads\_mapped.reheaded.bam}{\mapReads\_mapped.reheaded.sorted.bam}\\
 

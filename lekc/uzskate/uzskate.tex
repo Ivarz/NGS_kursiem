@@ -15,47 +15,58 @@
 \newcommand{\refSeq}{chr\_merged.fa}
 \newcommand{\refDir}{ref}
 \newcommand{\refFullDir}{\texttt{\textasciitile/\workDir/\reseqDir/ref}}
+\newcommand{\refRel}{\texttt{ref/\refSeq}}
 \newcommand{\denovo}{\textit{de-novo}}
 \newcommand{\denovoReads}{readsForDenovo}
-\newcommand{\dataDir}{data}
-\newcommand{\mapReads}{readsForMapping}
+\newcommand{\dataDir}{data/day1}
+\newcommand{\mapReads}{reseq\_reads}
+\newcommand{\snpEffData}{snpEffData}
 %Reference genome indexing
 \newcommand{\refindex}[1]{\texttt{tmap index -f #1}}
 %map reads
 \newcommand{\tmap}[3]{\texttt{tmap map3 -f #1 \textbackslash \\
-    -r #2 \textbackslash \\
-    -i fastq \textbackslash \\
-    -o 2 \textbackslash \\
-    -s #3
+  \indent -r #2 \textbackslash \\
+  \indent -i fastq \textbackslash \\
+  \indent -o 2 \textbackslash \\
+  \indent -s #3
   }
 }
 \newcommand{\tmapWithRG}[3]{\texttt{tmap map3 -f #1 \textbackslash \\
-    -r #2 \textbackslash \\
-    -R "@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
-    -i fastq \textbackslash \\
-    -o 2 \textbackslash \\
-    -s #3
+  \indent -r #2 \textbackslash \\
+  \indent -R "@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
+  \indent -i fastq \textbackslash \\
+  \indent -o 2 \textbackslash \\
+  \indent -s #3
   }
 }
 \newcommand{\sortbam}[2]{\texttt{samtools sort #1 #2}}
 
 \newcommand{\reheader}[2]{\texttt{samtools view -H #1 \textbackslash \\
-    | sed 's/SM:NOSM/SM:Sample1/' \textbackslash \\
-    | samtools reheader - mapped\_reads.bam \textbackslash \\
-    > #2
+  \indent | sed 's/SM:NOSM/SM:Sample1/' \textbackslash \\
+  \indent | samtools reheader - #1 \textbackslash \\
+  \indent > #2
   }
 }
 \newcommand{\samtoolssnp}[3]{\texttt{samtools mpileup -uf #1 \textbackslash \\
-    #2 \textbackslash \\
-    | \fbinDir/bcftools call -cv \textbackslash \\
-    | \fbinDir/vcfutils.pl varFilter > #3
+  \indent #2 \textbackslash \\
+  \indent | bcftools call -cv \textbackslash \\
+  \indent | vcfutils.pl varFilter > #3
+  }
+}
+
+\newcommand{\snpEff}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/snpEff.jar \textbackslash \\
+  \indent ann \textbackslash \\
+  \indent -c \textasciitilde/programs/snpEff/snpEff.config \textbackslash \\
+  \indent GRCh38.76 \textbackslash \\
+  \indent #1 \textbackslash \\
+  \indent > #2 
   }
 }
 
 \begin{document}
 %\input{title/title.tex}
-\input{linux/linux_basics.tex}
-\input{linux/env_setup.tex}
-\input{denovo/denovo_uzskate.tex}
-\input{snp_calling/snp_calling_uzskate.tex}
+  \input{linux/linux_basics.tex}
+  \input{linux/env_setup.tex}
+  \input{denovo/denovo_uzskate.tex}
+  \input{snp_calling/snp_calling_uzskate.tex}
 \end{document}

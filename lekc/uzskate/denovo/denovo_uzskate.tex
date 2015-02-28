@@ -20,12 +20,22 @@ To extract it from archive, type in terminal:\\~\\
 A new folder named \texttt{mira\_4.0.2\_linux-gnu\_x86\_64\_static} will appear.
 This is our extracted software.
 MIRA is already precompiled for us, so we just need
-to find the compiled executable files in the folder and install them locally 
-(or plainly speaking - copy them to our \binDir): \\~\\
+to find the compiled executable files in the folder and install them copy them to our \binDir: \\~\\
 \texttt{cd mira\_4.0.2\_linux-gnu\_x86\_64\_static} \\
 \texttt{cd bin} \\
 \texttt{cp mira \textasciitilde/\binDir} \\
 \texttt{cd \textasciitilde} \\
+
+Check if MIRA was installed successfully:\\~\\
+\texttt{mira}\\
+
+If you see\\~\\
+\texttt{The program 'mira' is currently not installed.}\\
+
+then reload \texttt{.bashrc} again:\\~\\
+\texttt{source .bashrc}\\
+
+and check the installation again.
 
 %TODO: uztaisīt direktoriju denovo ngswrkdirā un tur iekopēt fastq failu un izveidot miras manifestfailu
 Let's create a seperate directory for our \denovo~assembly project 

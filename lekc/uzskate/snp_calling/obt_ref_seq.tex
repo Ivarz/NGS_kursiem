@@ -12,23 +12,23 @@ a seperate folder \texttt{\refDir} for our reference sequences:\\~\\
 Our reference sequences can be accessed from a database made by
 University of California, Santa Cruz.
 The web address of the database is \url{http://genome.ucsc.edu/}.
-To find the necessary references sequences for chromosomes 1., 2. and 19.
+To find the necessary references sequences for chromosomes 13., 17. and 20.
 click on \texttt{Downloads} $\rightarrow$ \texttt{human} $\rightarrow$
-\texttt{Data set by chromosome}. Right click on \texttt{chr1.fa.gz}
+\texttt{Data set by chromosome}. Right click on \texttt{chr13.fa.gz}
 and choose \texttt{Copy link location}. In terminal type\\~\\
 \texttt{wget} \\
 
 paste the copied location and hit \texttt{Enter}. The reference sequence is compressed in \texttt{.gz}
 format, so we need to extract it:\\~\\
-\texttt{gzip -d chr1.fa.gz}\\
+\texttt{gzip -d chr13.fa.gz}\\
 
-File \texttt{chr1.fa} will appear in our folder.
+File \texttt{chr13.fa} will appear in our folder.
 
-Repeat the process for chromosomes 2. and 19.
+Repeat the process for chromosomes 17. and 20.
 
 After we have obtained and extracted our reference sequences, we need to concatenate them.
 To accomplish this task we will use command \texttt{cat}:\\~\\
-\texttt{cat chr1.fa chr2.fa chr19.fa > \refSeq}\\
+\texttt{cat chr13.fa chr17.fa chr20.fa > \refSeq}\\
 
 And we have the needed reference for further data processing steps.
 %To enable read mapper to efficiently read and process reference sequence, we need to
