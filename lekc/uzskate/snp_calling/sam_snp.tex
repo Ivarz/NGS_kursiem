@@ -3,9 +3,12 @@
 To call SNPs we will use \texttt{samtools} and \texttt{bcftools}.
 Using \texttt{samtools} we will generate our data in \textit{pileup} format which
 is then accessed by \texttt{bcftools} to call SNPs.
-Variant callers need sorted by position \textit{BAM} file to successfuly detect variants.
-To sort our \textit{BAM} file we will use \texttt{samtools}. In linux terminal type:\\~\\
-\sortbam{\mapReads\_mapped.reheaded.bam}{\mapReads\_mapped.reheaded.sorted.bam}\\
+\textit{Pileup} format is text based description of mapped bases at each position of reference sequence.
+You can think of it as a vertical version of alignment viewing.
+Variant callers need sorted by position \textit{BAM} file to successfuly detect variants
+and we have already done that, so we can move to variant calling.
+%To sort our \textit{BAM} file we will use \texttt{samtools}. In linux terminal type:\\~\\
+%\sortbam{\mapReads\_mapped.reheaded.bam}{\mapReads\_mapped.reheaded.sorted.bam}\\
 
 There are two choices of variant callers in \texttt{bcftools}:
 \texttt{--consensus-caller} or \texttt{--multiallelic-caller}. \texttt{consensus-caller} is

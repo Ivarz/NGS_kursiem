@@ -15,22 +15,59 @@ here \bash~ scripting comes in handy.
 and is one of the most popular choices for perfoming shell scripting. 
 Whenever we typed a command in linux terminal it was shell that was
 performing all the commands and giving us output.
-So we have been using \bash~ all along not knowing it.
+So we have been using \bash~all along not knowing it.
 
-Starting a \bash~ script is really easy - open a text editor, on the
+Starting a \bash~script is really easy - open a text editor, on the
 first line write \texttt{\#!/bin/bash}, on the next lines some commands,
-and save the file. You can tell \bash~ to launch script by typing in terminal:\\~\\
+and save the file. You can tell \bash~to launch script by typing in terminal:\\~\\
 \texttt{bash }\textit{ yourFileName}\\
 
 To build SNP calling pipeline we will use exactly this approach -
-open text editor and copy following lines:\\~\\
-\texttt{\#!/bin/bash}\\
-\tmapWithRG{\refRel}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\~\\
-\texttt{samtools sort \mapReads\_mapped.reheaded.bam \mapReads\_mapped.reheaded.sorted}\\~\\
+open text editor and copy following lines (note that text starting
+with \texttt{\#} is a comment line where you can write anything you want to make
+the code readable):\\~\\
+\lstinputlisting{snp_calling/pipelines/pipeline1.sh}
+%\begin{listing}
+%\texttt{\#!/bin/bash}\\~\\
+%\tmapWithRG{\refRel}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\~\\
+%\texttt{samtools sort \mapReads\_mapped.reheaded.bam \mapReads\_mapped.reheaded.sorted}\\~\\
 %\reheader{\mapReads\_mapped.bam}{\mapReads\_mapped.reheaded.bam}\\~\\
-\texttt{\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}}\\~\\
-\snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\~\\
-\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\~\\
-
+%\texttt{\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}}\\~\\
+%\snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\~\\
+%\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\~\\
+%\end{lstlisting}
 Save it as \texttt{\pipename} and launch it by typing in terminal:\\~\\
-\texttt{bash \pipename}
+\texttt{bash \pipename}\\
+
+This is good if we want to repeat this analysis over and over again on this one sample.
+What if we have a new sample we want to analyse? We could replace filenames of previous sample,
+to filenames of the new sample by hand. However, there is a better way - we can save our
+sample name in a variable, and use that variable throughout the script. In \bash~
+we assign value to a variable with \texttt{=} operator, and retrieve value from variable
+by adding \texttt{\$} at the beginning of variable's name:
+\lstinputlisting{snp_calling/pipelines/pipeline2.1.sh}
+%\texttt{\#!/bin/bash}\\~\\
+%\texttt{sample\_name=\mapReads}\\~\\
+%\tmapWithRG{\refRel}{\$sample\_name.fastq}{\$sample\_name.mapped.reheaded.bam}\\~\\
+%\texttt{samtools sort \$sample\_name.mapped.reheaded.bam \$sample\_name.mapped.reheaded.sorted}\\~\\
+%%\reheader{\mapReads\_mapped.bam}{\mapReads\_mapped.reheaded.bam}\\~\\
+%\texttt{\samtoolssnp{\refRel}{\$sample\_name.mapped.reheaded.sorted.bam}{\$sample\_name.bcftools\_snps.vcf}}\\~\\
+%\snpEff{\$sample\_name.bcftools\_snps.vcf}{\$sample\_name.bcftools\_snps.annotated.vcf}\\~\\
+%\SnpSiftFilter{\$sample\_name.bcftools\_snps.annotated.vcf}{\$sample\_name.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\~\\
+%We can add more flexibility in our script
+
+We can go even further - we can provide sample name as an argument
+to our pipeline. There is a predefined \bash~ variable (\texttt{\$1})
+that stores everything we supply as an argument for our script:
+\lstinputlisting{snp_calling/pipelines/pipeline3.sh}
+
+To launch it, type:\\~\\
+\texttt{bash \pipename~\mapReads}\\
+
+Suppose that we have multiple \textit{FASTQ} files that we want to analyze.
+Using pattern matching and \texttt{for} loop, we can automatically process them with our pipeline:\\~\\
+\texttt{for fastqFile in *.fastq; do \\
+\indent bash \pipename~\$fastqFile \\
+done
+}
+
