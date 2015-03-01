@@ -49,6 +49,9 @@ It is also possible to extract some specific region from the \textit{BAM} file w
 by adding coordinates in form \texttt{chr\textit{N}:\textit{start}-\textit{end}} at the end of command:\\~\\
 \texttt{samtools view \mapReads\_mapped.bam chr13:27925800-27925900}\\
 
+To interpret \texttt{FLAG} field (2nd column in \textit{BAM} file), you
+can use \texttt{samtools flags} command providing it with the flag you are interested in:\\~\\
+\texttt{samtools flags 4}\\
 
 %TODO aprakstīt katru no soļiem
 To view \textit{BAM} file header, use 
@@ -86,6 +89,9 @@ do this easily using \texttt{samtools} commands
 \texttt{samtools sort \mapReads\_mapped.reheaded.bam \mapReads\_mapped.reheaded.sorted}\\
 \texttt{samtools index \mapReads\_mapped.reheaded.sorted.bam}\\
 
+\textit{BAM} file indexing allows programs to efficiently access any part of the \textit{BAM} file.
+\textit{BAM} index file names usually end with \texttt{.bam.bai}. 
+
 After sorting and indexing, we can view our \textit{BAM} file. In linux terminal type:\\~\\
 \texttt{samtools tview \mapReads\_mapped.reheaded.sorted.bam \refRel}\\
 
@@ -94,6 +100,12 @@ Type \texttt{q} to quit viewer. A good place to view mapped reads and
 test the viewer is \texttt{chr13:27925825}. To go to this position, type \texttt{g}
 and enter this coordinate as it is shown.
 
+To get overall \textit{BAM} file statistics and number of mapped reads for each chromosome, you can use 
+\texttt{samtools} commands \texttt{flagstat} and \texttt{idxstats}:\\~\\
+\texttt{samtools flagstat \mapReads\_mapped.reheaded.sorted.bam}\\
+\texttt{samtools idxstats \mapReads\_mapped.reheaded.sorted.bam}\\
+
+To use these commands, \textit{BAM} file must be sorted and indexed.
 %tview chr13:27925825
 %region
 %idxstats
