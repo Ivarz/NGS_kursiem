@@ -35,8 +35,9 @@
 }
 \newcommand{\tmapWithRG}[3]{\texttt{tmap map3 -f #1 \textbackslash \\
   \indent -r #2 \textbackslash \\
-  \indent -R "@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
   \indent -i fastq \textbackslash \\
+  \indent -R ID:SomeID \textbackslash \\
+  \indent -R SM:Sample1 \textbackslash \\%"@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
   \indent -o 2 \textbackslash \\
   \indent -s #3
   }
@@ -44,7 +45,7 @@
 \newcommand{\sortbam}[2]{\texttt{samtools sort #1 #2}}
 
 \newcommand{\reheader}[2]{\texttt{samtools view -H #1 \textbackslash \\
-  \indent | sed 's/SM:NOSM/SM:Sample1/' \textbackslash \\
+  \indent | sed 's/ID:NOID/SM:SomeID/;s/SM:NOSM/SM:Sample1/' \textbackslash \\
   \indent | samtools reheader - #1 \textbackslash \\
   \indent > #2
   }

@@ -72,14 +72,25 @@ and \texttt{j} - for dealing with tar.bz2\\~\\
 \begin{tabular}{ll}
   Command & Explanation \\
   \hhline{==}
-  \textit{command} \texttt{>} \textit{filename} & Output of \textit{command} is saved to \textit{filename}, overwriting it \\
-  \textit{command} \texttt{>>} \textit{filename} & Output of \textit{command} is appended at the end of \textit{filename} \\
+  \textit{command} \texttt{>} \textit{filename} & output of \textit{command} is saved to \textit{filename}, overwriting it \\
+  \textit{command} \texttt{>>} \textit{filename} & output of \textit{command} is appended at the end of \textit{filename} \\
   \textit{command} \texttt{<} \textit{filename} & \textit{command} reads input from \textit{filename} \\
 %  \textit{command} \texttt{>} \textit{filename} & Whatever is printed out to terminal is saved to \textit{filename} instead, overwriting it \\
 %  \textit{command} \texttt{>>} \textit{filename} & Whatever is printed out to terminal is appended at the end of \textit{filename} instead \\
   \textit{command1} \texttt{|} \textit{command2} & \textit{command2} takes the output of \textit{command1} and produces result \\  
 %  \textit{command1} \texttt{|} \textit{command2} \texttt{>} \textit{filename} & \textit{command2} 
 %    takes the output of \textit{command1} and saves result in \textit{filename} \\
+%  \textit{command1} \texttt{&&} \textit{command2} & \textit{command2} is executed if \textit{command1} was executed successfully\\
+%  \textit{command1} \texttt{||} \textit{command2} & \textit{command2} is executed if \textit{command1} has failed\\
+\end{tabular}
+
+\subsection{Lists of commands}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \textit{command1} \texttt{;} \textit{command2} & \textit{command2} is executed after \textit{command1}\\
+  \textit{command1} \texttt{\&\&} \textit{command2} & \textit{command2} is executed if \textit{command1} was successful\\
+  \textit{command1} \texttt{||} \textit{command2} & \textit{command2} is executed if \textit{command1} has failed\\
 \end{tabular}
 
 \subsection{Filters}
@@ -109,7 +120,28 @@ and \texttt{j} - for dealing with tar.bz2\\~\\
   \texttt{history} & view your command line history \\
   \texttt{wget} \textit{someWebAddress} & download contents of \textit{someWebAddress} to current directory\\
   \texttt{make} & tool that is used to compile source code creating executables\\
-  \texttt{export} \textit{name}\texttt{=}\textit{value} & sets \textit{value} to \textit{name}. Type \texttt{echo \$\textit{name}} to view \textit{value}
-%TODO add source command
+  \texttt{export} \textit{name}\texttt{=}\textit{value} & sets \textit{value} to \textit{name}. Type \texttt{echo \$\textit{name}} to view \textit{value}\\
+  \texttt{source} \textit{filename} & read and execute commands from the \textit{filename} argument \\
 \end{tabular}  
+
+\subsection{Syntax}
+\begin{tabular}{ll}
+  Syntax element & Explanation \\
+  \hhline{==}
+  \texttt{\textbackslash} & allows to split command over multiple lines\\
+  
+\end{tabular}
+\subsection{\texttt{for} loop}
+\texttt{for} loop allows to iterate over a list of items and apply commands on them:\\~\\
+\texttt{for item in item1 item2 item3 item4; do\\
+  \indent echo \$item \\
+done}\\
+
+Note that we are assigning to \texttt{item} each value in list of items 
+(\texttt{item1 item2 item3 item4}) in the first line, and we are retrieving
+the value of \texttt{item} by putting \$ before it.
+
+We can also write \texttt{for} loop in a single line:\\~\\
+\texttt{for item in item1 item2 item3 item4; do echo \$item; done}\\
+
 

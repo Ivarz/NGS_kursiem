@@ -2,7 +2,7 @@
 %\refindex{\refRel}
 %\tmap{\refRel}{\mapReads.fastq}{\mapReads\_mapped.bam}\\~\\
 Writing all these commands by hand is time consuming, tedious and error prone
-and we need a better way how execute these commands.
+and we need a better way to execute these commands.
 One way how to solve this problem is to save all our commands
 in a text file and, when the time comes to analyze our data, copy these
 commands in the terminal. While this method can save our time on looking
@@ -14,7 +14,7 @@ here \bash~ scripting comes in handy.
 \bash~ stands for \textit{\textbf{B}ourne-\textbf{A}gain \textbf{Sh}ell}
 and is one of the most popular choices for perfoming shell scripting. 
 Whenever we typed a command in linux terminal it was shell that was
-performing all the commands and giving as output.
+performing all the commands and giving us output.
 So we have been using \bash~ all along not knowing it.
 
 Starting a \bash~ script is really easy - open a text editor, on the
@@ -26,6 +26,7 @@ To build SNP calling pipeline we will use exactly this approach -
 open text editor and copy following lines:\\~\\
 \texttt{\#!/bin/bash}\\
 \tmapWithRG{\refRel}{\mapReads.fastq}{\mapReads\_mapped.reheaded.bam}\\~\\
+\texttt{samtools sort \mapReads\_mapped.reheaded.bam \mapReads\_mapped.reheaded.sorted}\\~\\
 %\reheader{\mapReads\_mapped.bam}{\mapReads\_mapped.reheaded.bam}\\~\\
 \texttt{\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}}\\~\\
 \snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\~\\
