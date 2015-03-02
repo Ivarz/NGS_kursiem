@@ -40,5 +40,9 @@ To annotate called variants, type:\\~\\
 In the resulting \textit{VCF} file \texttt{snpEff} adds a new entry in the \texttt{INFO} field - \texttt{ANN}.
 To filter only those SNPs that are marked as nonsynonymous or stop gained we are going to
 use \texttt{SnpSift}'s command \texttt{filter}. \texttt{SnpSift}'s \texttt{filter} command needs
-\textit{VCF} file annotated by \texttt{snpEff} and filtering expression. Type:\\~\\
+\textit{VCF} file annotated by \texttt{snpEff} and filtering expression.
+We will use expression \texttt{"(ANN[*].EFFECT = 'missense\_variant)' || (ANN[*].EFFECT = 'stop\_gained')"}
+which can be translated as: if any "ANN" field for this variant, has effect of missense or stop gain, then print this variant
+to terminal. For more examples on filtering expressions, see \url{http://snpeff.sourceforge.net/SnpSift.html}.
+To perform variant filtering, type:\\~\\
 \SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\

@@ -32,51 +32,51 @@
 %Reference genome indexing
 \newcommand{\refindex}[1]{\texttt{tmap index -f #1}}
 %map reads
-\newcommand{\tmap}[3]{\texttt{tmap map3 -f #1 \textbackslash \\
-  \indent -r #2 \textbackslash \\
-  \indent -i fastq \textbackslash \\
-  \indent -o 1 \textbackslash \\
+\newcommand{\tmap}[3]{\texttt{tmap map3 -f #1~\textbackslash \\
+  \indent -r #2~\textbackslash \\
+  \indent -i fastq~\textbackslash \\
+  \indent -o 1~\textbackslash \\
   \indent -s #3
   }
 }
-\newcommand{\tmapWithRG}[3]{\texttt{tmap map3 -f #1 \textbackslash \\
-  \indent -r #2 \textbackslash \\
-  \indent -i fastq \textbackslash \\
-  \indent -R ID:SomeID \textbackslash \\
-  \indent -R SM:Sample1 \textbackslash \\%"@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
-  \indent -o 1 \textbackslash \\
+\newcommand{\tmapWithRG}[3]{\texttt{tmap map3 -f #1~\textbackslash \\
+  \indent -r #2 \textbackslash~\\
+  \indent -i fastq \textbackslash~\\
+  \indent -R ID:SomeID \textbackslash~\\
+  \indent -R SM:Sample1 \textbackslash~\\%"@RG\textbackslash tID:SomeID\textbackslash tSM:Sample1" \textbackslash \\
+  \indent -o 1 \textbackslash~\\
   \indent -s #3
   }
 }
 \newcommand{\sortbam}[2]{\texttt{samtools sort #1 #2}}
 
-\newcommand{\reheader}[2]{\texttt{samtools view -H #1 \textbackslash \\
-  \indent | sed 's/ID:NOID/SM:SomeID/;s/SM:NOSM/SM:Sample1/' \textbackslash \\
-  \indent | samtools reheader - #1 \textbackslash \\
+\newcommand{\reheader}[2]{\texttt{samtools view -H #1~\textbackslash \\
+  \indent | sed 's/ID:NOID/SM:SomeID/;s/SM:NOSM/SM:Sample1/'~\textbackslash \\
+  \indent | samtools reheader - #1~\textbackslash \\
   \indent > #2
   }
 }
-\newcommand{\samtoolssnp}[3]{\texttt{samtools mpileup -uf #1 \textbackslash \\
-  \indent #2 \textbackslash \\
-  \indent | bcftools call -mv --skip-variants indels \textbackslash \\
+\newcommand{\samtoolssnp}[3]{\texttt{samtools mpileup -uf #1~\textbackslash \\
+  \indent #2~\textbackslash \\
+  \indent | bcftools call -mv --skip-variants indels~\textbackslash \\
 %  \indent | vcfutils.pl varFilter > #3
   \indent > #3
   }
 }
 
-\newcommand{\snpEff}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/snpEff.jar \textbackslash \\
-  \indent ann \textbackslash \\
-  \indent -c \textasciitilde/programs/snpEff/snpEff.config \textbackslash \\
-  \indent GRCh38.76 \textbackslash \\
-  \indent #1 \textbackslash \\
+\newcommand{\snpEff}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/snpEff.jar~\textbackslash \\
+  \indent ann~\textbackslash \\
+  \indent -c \textasciitilde/programs/snpEff/snpEff.config~\textbackslash \\
+  \indent GRCh38.76~\textbackslash \\
+  \indent #1~\textbackslash \\
   \indent > #2 
   }
 }
 
-\newcommand{\SnpSiftFilter}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/SnpSift.jar \textbackslash \\
-  \indent filter \textbackslash \\
-  \indent -f #1 \textbackslash \\
-  \indent "ANN[*].EFFECT = 'missense\_variant' || ANN[*].EFFECT = 'stop\_gained'" \textbackslash \\
+\newcommand{\SnpSiftFilter}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/SnpSift.jar~\textbackslash \\
+  \indent filter~\textbackslash \\
+  \indent -f #1~\textbackslash \\
+  \indent "(ANN[*].EFFECT = 'missense\_variant') || (ANN[*].EFFECT = 'stop\_gained')"~\textbackslash \\
   \indent > #2
   }
 }

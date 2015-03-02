@@ -31,5 +31,5 @@ java -jar ~/programs/snpEff/snpEff.jar \
 java -jar ~/programs/snpEff/SnpSift.jar \
   filter \
   -f reseq_reads.bcftools_snps.annotated.vcf \
-  "ANN[*].EFFECT='missense_variant'||ANN[*].EFFECT='stop_gained'"
+  "(ANN[*].EFFECT='missense_variant')||(ANN[*].EFFECT='stop_gained')"
   > reseq_reads.bcftools_snps.annotated.nonsyn_stop.vcf
