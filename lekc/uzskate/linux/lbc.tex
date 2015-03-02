@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{framed}
+\usepackage{fontspec}
+\usepackage{hhline}
+\usepackage{hyperref}
+\usepackage{listings}
+\newcommand{\git}{\texttt{git}}
+\newcommand{\Git}{\texttt{Git}}
+\newcommand{\IonTorrent}{\textit{IonTorrent}}
+\newcommand{\binDir}{binaries}
+\newcommand{\fbinDir}{\textasciitile/\binDir}
+\newcommand{\progDir}{programs}
+\newcommand{\workDir}{ngs\_work}
+\newcommand{\denovoDir}{denovo}
+\newcommand{\reseqDir}{reseq}
+\newcommand{\refSeq}{chr\_merged.fa}
+\newcommand{\refDir}{ref}
+\newcommand{\refFullDir}{\texttt{\textasciitile/\workDir/\reseqDir/ref}}
+\newcommand{\refRel}{\texttt{ref/\refSeq}}
+\newcommand{\denovo}{\textit{de-novo}}
+\newcommand{\denovoReads}{denovo\_reads}
+\newcommand{\dataDir}{data/day1}
+\newcommand{\mapReads}{reseq\_reads}
+\newcommand{\snpEffData}{snpEffData}
+\newcommand{\bash}{\textit{bash}}
+\newcommand{\pipename}{snp\_pipeline.sh}
+\newcommand{\targz}{\textit{.tar.gz}}
+\newcommand{\tarbz}{\textit{.tar.bz2}}
+\newcommand{\gz}{\textit{.gz}}
+\begin{document}
+\section{Basic linux commands}
+Here some basic linux commands will be briefly explained.
+%You don't need to memorize these, most frequently used commands w
+For information about more commands, feel free to consult with the internet.
+
+\subsection{Getting around}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \texttt{ls} & list contents of current directory \\
+  \texttt{ls} \textit{dirname} & list contents of directory named \textit{dirname} \\
+%  \textbf{cd} & \textbf{change directory} \\
+  \texttt{cd} \textit{dirname} & change current directory to \textit{dirname} \\
+  \texttt{cd \textasciitilde} & go to home directory (default directory) \\
+  \texttt{cd ..} & go one directory up \\
+  \texttt{pwd} & print name of current directory \\
+  \texttt{mkdir} \textit{dirname} & make a new directory named \textit{dirname}\\
+  \texttt{man} \textit{command} & show manual for \textit{command} \\
+\end{tabular}
+
+\subsection{File manipulation}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+%  cp & copy files and directories
+%\textit{filename1} to \textit{filename2}
+%  \textbf{cp} & \textbf{copy} \\
+  \texttt{cp} \textit{filename1} \textit{filename2} & copy file \\
+  \texttt{cp -r} \textit{dirname1} \textit{dirname2} & copy directory \\
+  \texttt{mv} \textit{name1} \textit{name2} & move file or directory (can be used for renaming) \\
+  \texttt{rm} \textit{filename} & remove file (you won't be able to recover removed file) \\
+  \texttt{rm -r} \textit{dirname} & remove directory and its contents \\
+  \texttt{more} \textit{filename} & command for paging through text file one screenful at a time \\%(\texttt{q} to quit)\\
+  \texttt{less} \textit{filename} & similar as \texttt{more}. Better for viewing large text files (\texttt{q} to quit) \\
+  \texttt{cat} \textit{filename1 filename2 filenameN} & concatenate text files in print output to terminal window \\
+  \texttt{head} \textit{filename} & print first 10 lines of a text file to terminal window \\
+  \texttt{head -n 20} \textit{filename} &  print first 20 lines of a text file to terminal window \\
+  \texttt{tail} & opposite of \texttt{head} \\
+  \texttt{wc} \textit{filename} & show the number of lines, words and characters in a text file \\
+  \texttt{cut -f 2} \textit{tabDelimitedFilename} & extract 2nd column from a tab delimited file \\
+  \texttt{cut -f 3 -d ,} \textit{comaSeperatedFilename} & extract 3rd column from a coma seperated file \\
+  \texttt{nano} \textit{filename} & open \textit{filename} in text editor \texttt{nano} \\
+\end{tabular}
+
+\subsection{Archiving and unarchiving of files}
+Note that for the \texttt{tar} utility, option \texttt{c} stands for compress, 
+\texttt{x} - for uncompress or extract, \texttt{z} - for dealing with \textit{tar.gz},
+and \texttt{j} - for dealing with \textit{tar.bz2}\\~\\
+\subsubsection{Compressing}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \texttt{tar -cvf} \textit{filename.tar} \textit{filename} & \textbf{compress} file to \textbf{.tar} format\\
+  \texttt{tar -zcvf} \textit{filename.tar.gz} \textit{filename} & \textbf{compress} file to \textbf{.tar.gz} format\\
+  \texttt{tar -jcvf} \textit{filename.tar.bz2} \textit{filename} & \textbf{compress} file to \textbf{.tar.bz2} format\\
+  \texttt{zip} \textit{filename.zip filename} & \textbf{compress} file to \textbf{.zip} format \\
+  \texttt{gzip} \textit{filename} & \textbf{compress} file to \textbf{.gz} format \\
+\end{tabular}
+
+\subsubsection{Uncompressing}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \texttt{tar -xvf} \textit{filename.tar} & \textbf{uncompress} from \textbf{.tar} format \\
+  \texttt{tar -zxvf} \textit{filename.tar.gz} & \textbf{uncompress} from \textbf{.tar.gz} format \\
+  \texttt{tar -jxvf} \textit{filename.tar.bz2} & \textbf{uncompress} from \textbf{.tar.bz2} format \\
+  \texttt{unzip} \textit{filename.zip} & \textbf{uncompress} from \textbf{.zip} format \\
+  \texttt{gzip -d} \textit{file.gz} & \textbf{uncompress} from \textbf{.gz} format \\
+\end{tabular}
+
+\subsection{Input/Output redirection}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \textit{command} \texttt{>} \textit{filename} & output of \textit{command} is saved to \textit{filename}, overwriting it \\
+  \textit{command} \texttt{>>} \textit{filename} & output of \textit{command} is appended at the end of \textit{filename} \\
+  \textit{command} \texttt{<} \textit{filename} & \textit{command} reads input from \textit{filename} \\
+%  \textit{command} \texttt{>} \textit{filename} & Whatever is printed out to terminal is saved to \textit{filename} instead, overwriting it \\
+%  \textit{command} \texttt{>>} \textit{filename} & Whatever is printed out to terminal is appended at the end of \textit{filename} instead \\
+  \textit{command1} \texttt{|} \textit{command2} & \textit{command2} takes the output of \textit{command1} and produces result \\  
+%  \textit{command1} \texttt{|} \textit{command2} \texttt{>} \textit{filename} & \textit{command2} 
+%    takes the output of \textit{command1} and saves result in \textit{filename} \\
+%  \textit{command1} \texttt{&&} \textit{command2} & \textit{command2} is executed if \textit{command1} was executed successfully\\
+%  \textit{command1} \texttt{||} \textit{command2} & \textit{command2} is executed if \textit{command1} has failed\\
+\end{tabular}
+
+\subsection{Lists of commands}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \textit{command1} \texttt{;} \textit{command2} & \textit{command2} is executed after \textit{command1}\\
+  \textit{command1} \texttt{\&\&} \textit{command2} & \textit{command2} is executed if \textit{command1} was successful\\
+  \textit{command1} \texttt{||} \textit{command2} & \textit{command2} is executed if \textit{command1} has failed\\
+\end{tabular}
+
+\subsection{Filters}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \texttt{grep} \textit{text filename} & Prints every line in \textit{filename} containing \textit{text} \\
+  \texttt{sed 's/}\textit{red}\texttt{/}\textit{green}\texttt{/'} \textit{filename} & Prints every line in \textit{filename} 
+     substituting word \textit{red} with word \textit{green} 
+\end{tabular}
+
+\subsection{Pattern matching}
+%TODO:describe pattern usage. \\~\\
+\begin{tabular}{cl}
+  Pattern & Explanation \\
+  \hhline{==}
+  \texttt{*} & matches zero or more characters \\
+  \texttt{?} & matches one character \\
+  \texttt{\textasciitilde} & refers to user's default (home) directory
+\end{tabular}
+
+\subsection{Miscellaneous}
+\begin{tabular}{ll}
+  Command & Explanation \\
+  \hhline{==}
+  \texttt{echo} \textit{text} & display a line of text \\
+  \texttt{history} & view your command line history \\
+  \texttt{wget} \textit{someWebAddress} & download contents of \textit{someWebAddress} to current directory\\
+  \texttt{make} & tool that is used to compile source code creating executables\\
+  \texttt{export} \textit{name}\texttt{=}\textit{value} & sets \textit{value} to \textit{name}. Type \texttt{echo \$\textit{name}} to view \textit{value}\\
+  \texttt{source} \textit{filename} & read and execute commands from the \textit{filename} argument \\
+\end{tabular}  
+
+\subsection{Syntax}
+\begin{tabular}{cl}
+  Syntax element & Explanation \\
+  \hhline{==}
+  \texttt{\textbackslash} & allows to split command over multiple lines\\
+  
+\end{tabular}
+\subsection{\texttt{for} loop}
+\texttt{for} loop allows to iterate over a list of items and apply commands on them:\\~\\
+\texttt{for item in item1 item2 item3 item4; do\\
+  \indent echo \$item \\
+done}\\
+
+Note that we are assigning to \texttt{item} each value in list of items 
+(\texttt{item1 item2 item3 item4}) in the first line, and we are retrieving
+the value of \texttt{item} by putting \$ before it.
+
+We can also write \texttt{for} loop in a single line:\\~\\
+\texttt{for item in item1 item2 item3 item4; do echo \$item; done}\\
+
+\end{document}
