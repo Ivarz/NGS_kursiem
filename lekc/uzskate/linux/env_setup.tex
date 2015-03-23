@@ -4,8 +4,8 @@ You will find there \IonTorrent~ sequencing reads that we are going
 to analyze and some other necessary resources.
 
 Let's create two seperate directories:
-one directory where we will be performing all analysis for sequencing data, and other -
-where we will be downloading and compiling necessary software:\\~\\
+one directory where we will perform all analysis for sequencing data, and other -
+where we will download and compile necessary software:\\~\\
 \texttt{mkdir \workDir} \\
 \texttt{mkdir \progDir} \\
 %mkdir \binDir}\\~\\
@@ -18,7 +18,7 @@ Let's create this directory and name it \texttt{\binDir}. In linux terminal type
 
 Let's make this directory special - every executable file we put there, we will be able
 to easily execute, just by typing the executable's file name from anywhere in the system.
-To achieve this, we will be adding \texttt{\textasciitilde/\binDir}~folder to the \texttt{\$PATH} 
+To achieve this, we will add \texttt{\textasciitilde/\binDir}~folder to the \texttt{\$PATH} 
 system's environment variable by editing a text file named \texttt{.bashrc} using text editor \texttt{nano}.
 In linux terminal type:\\~\\
 \texttt{nano \textasciitilde/.bashrc}\\
@@ -29,7 +29,7 @@ and type in following text:\\~\\
 
 Hit \texttt{Ctrl o} and \texttt{Enter} to save file and \texttt{Ctrl x} to exit.
 Reload \texttt{.bashrc}:\\~\\%TODO vēl kko pielikt klāt
-\texttt{source .bashrc}\\
+\texttt{source \textasciitilde/.bashrc}\\
 
 \begin{framed}
 \texttt{\$PATH} variable contains a list of directories that the system will look in, when we are

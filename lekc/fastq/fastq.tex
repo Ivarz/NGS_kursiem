@@ -38,33 +38,41 @@ http://www.ascii-code.com/ \\
 
 \begin{frame}{Deciphering of quality "?"}
 \framesubtitle{Encoded value $\rightarrow$ Quality score}
-By looking at ascii table we found out that symbol ? is encoded as a decimal value 63
-Symbols used for quality score encoding (Sanger) start with symbol ! (encoded as decimal value 33)
-To obtain the quality score (also known as Phred quality score) we need to substract smallest possible value (33) from the obtained value 63.
-63 - 33 = 30
+\begin{itemize}
+  \item Symbol ? is encoded as a decimal value 63
+  \item Symbols used for quality score encoding (Sanger) start with symbol ! (value 33)
+  \item Quality score = ? - ! = 63 - 33 = 30
+\end{itemize}
+%By looking at ascii table we found out that symbol ? is encoded as a decimal value 63
+%Symbols used for quality score encoding (Sanger) start with symbol ! (encoded as decimal value 33)
+%To obtain the quality score (also known as Phred quality score) we need to substract smallest possible value (33) from the obtained value 63.
+%63 - 33 = 30
 \end{frame}
 
 \begin{frame}{Deciphering of quality "?"}
 \framesubtitle{Quality score $\rightarrow$ Probability of error}
+
 $p = 10^{-\frac{Q}{10}}$ \\
 Our Q = 30, therefore\\
 $p = 10^{-\frac{30}{10}} = 10^{-3} = 0.001$ \\
 Probability that nucleotide G is an error = 0.001
-\end{frame}
-\begin{frame}{\textit{Fastq} quality control}
-\framesubtitle{Assessment of quality}
-http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+
 \end{frame}
 
-\begin{frame}{\textit{Fastq} quality control}
-\framesubtitle{Trimming and filtering of reads}
-http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-\end{frame}
+%\begin{frame}{\textit{Fastq} quality control}
+%\framesubtitle{Assessment of quality}
+%http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+%\end{frame}
 
-\begin{frame}{\textit{Fastq} quality control}
-\framesubtitle{Repeated assessment of quality}
-http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
-\end{frame}
+%\begin{frame}{\textit{Fastq} quality control}
+%\framesubtitle{Trimming and filtering of reads}
+%http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+%\end{frame}
+
+%\begin{frame}{\textit{Fastq} quality control}
+%\framesubtitle{Repeated assessment of quality}
+%http://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+%\end{frame}
 
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth, height=\paperheight]{pic/readi.png}}

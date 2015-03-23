@@ -21,6 +21,16 @@ Compilation instructions:\\~\\
 \texttt{./configure}\\
 \texttt{make}\\
 
+\begin{framed}
+If you are installing \texttt{tmap} on your own Ubuntu servers, then you probably will encounter
+some errors about \texttt{aclocal} or \texttt{git} missing. If you have administrator's rights
+on your server, you can counter these errors by installing missing components as follows:
+in your linux terminal type\\~\\
+\texttt{sudo apt-get install git}\\
+\texttt{sudo apt-get install automake}\\
+
+Your best bet for countering other errors is just searching for the solution on the internet.
+\end{framed}
 Lets test the program to confirm that it was compiled successfully:\\~\\
 \texttt{./tmap}\\
 
@@ -82,8 +92,9 @@ If (hopefully) no errors were encountered, then \texttt{samtools} was compiled c
 
 to test the tool. If you see the program's interface, then the program was compiled successfully.
 Move compiled binary file to a directory where we are storing our compiled software:\\~\\
-\texttt{cp samtools \textasciitilde/\binDir\\}
+\texttt{cp samtools \textasciitilde/\binDir}\\
+\texttt{cd ..}\\
 
 Repeat the same process for \texttt{bcftools}
 (go to \texttt{bcftools} source code directory,
-compile it using \texttt{make} and copy resulting binary file to \texttt{\textasciitilde/\binDir})..
+compile it using \texttt{make} and copy resulting binary file to \texttt{\textasciitilde/\binDir}).

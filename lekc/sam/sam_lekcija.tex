@@ -14,11 +14,13 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{\sam~ header}
+\begin{frame}{\sam~ file contents}
   \begin{center}
-    \includegraphics[width=\linewidth, keepaspectratio]{pic/sam_full_h.png}
+    \includegraphics[width=\linewidth, keepaspectratio]{pic/sam_full_hb.png}
   \end{center}
 \end{frame}
+
+
 
 \begin{frame}{\sam~ body}
   \begin{center}
@@ -26,15 +28,11 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{\sam~ body}
-%  \begin{itemize}
-%    \item Every line starts with @ and two letter record type code
-%    \item Mostly follows \texttt{TAG:VALUE} format
-%  \end{itemize}
-  \begin{center}
-    \includegraphics[width=\linewidth, keepaspectratio]{pic/sam_b.png}
-  \end{center}
-\end{frame}
+%\begin{frame}{\sam~ body}
+%  \begin{center}
+%    \includegraphics[width=\linewidth, keepaspectratio]{pic/sam_b.png}
+%  \end{center}
+%\end{frame}
 
 \begin{frame}{\sam~ body}
   From \textit{SAM} format specification:
@@ -144,6 +142,33 @@
   \end{center}
 \end{frame}
 
+\begin{frame}{\sam~ body}
+  \begin{center}
+    \includegraphics[width=\linewidth, keepaspectratio]{pic/sam_full_h.png}
+  \end{center}
+\end{frame}
 
+
+\begin{frame}{\sam~ header}
+  \begin{itemize}
+    \item Every line starts with @ and two letter record type code
+    \item Mostly follows \texttt{TAG:VALUE} format
+  \end{itemize}
+%\end{frame}
+
+%\begin{frame}{\sam~ header}
+  \begin{tabular}{rl}
+    \hline
+    Record type & Meaning\\
+    \hline
+    @HD & The header line. The first line if present \\
+    @SQ & Reference sequence dictionary \\
+    @RG & Read group\\
+    @PG & Program\\
+  \end{tabular}
+  \begin{center}
+    \includegraphics[width=\linewidth, keepaspectratio]{pic/sam_h.png}
+  \end{center}
+\end{frame}
 
 \end{document}

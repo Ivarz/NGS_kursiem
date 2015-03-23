@@ -8,36 +8,59 @@ To download and install them, type in linux terminal:\\~\\
 \texttt{cd \textasciitilde/\progDir} \\
 \texttt{wget http://sourceforge.net/projects/snpeff/files/snpEff\_latest\_core.zip} \\
 
-paste the copied location and hit \texttt{Enter}. To \texttt{unzip snpEff} type:\\~\\
+To \texttt{unzip snpEff} type:\\~\\
 \texttt{unzip snpEff\_latest\_core.zip}\\
 
 Unfortunately we wil not be able to launch both programs from \texttt{\binDir} folder
 and we can leave the software in \texttt{\progDir} directory.
 
+\texttt{SnpSift} and \texttt{snpEff} are \textit{.jar} files which means that
+these are \texttt{java} applications. To run \texttt{java} applications through linux terminal,
+use command \texttt{java -jar} \textit{filename.jar}. 
 \texttt{snpEff} requires databases to predict effects of SNPs.
-The needed database is already downloaded for us and resides in
-\texttt{\textasciitilde/\dataDir/\snpEffData}. Our task is to 
-configure \texttt{snpEff} to tell it where this database can be found.
-
-After downloading and unzipping of \texttt{snpEff} we will need to
-edit \texttt{snpEff's} configuration file named \texttt{snpEff.config}
-and change entry \texttt{data.dir = ./data/} to \texttt{data.dir = \textasciitilde/\dataDir/\snpEffData/}
+We will use human genome's (version \texttt{GRCh38.76}) database to annotate SNPs.
+To download it, use \texttt{snpEff}'s command \texttt{download} (it is quite large file (\textasciitilde 715~MB) and it may take some
+time to download it depending on the speed of internet connection)\\~\\
+%The needed database is already downloaded for us and resides in
+%\texttt{\textasciitilde/\dataDir/\snpEffData}. Our task is to 
+%configure \texttt{snpEff} to tell it where this database can be found.
+%After downloading and unzipping of \texttt{snpEff} we will need to
+%edit \texttt{snpEff's} configuration file named \texttt{snpEff.config}
+%and change entry \texttt{data.dir = ./data/} to \texttt{data.dir = \textasciitilde/\dataDir/\snpEffData/}
 %In linux terminal type:\\~\\
-%\texttt{cd \textasciitilde/\progDir/snpEff}
+\texttt{cd \textasciitilde/\progDir/snpEff}\\
+\texttt{java -jar snpEff.jar download GRCh38.76}\\
 %\texttt{nano snpEff.config}
 
 %TODO aprakstīt abas komandas
-\texttt{SnpSift} and \texttt{snpEff} are \textit{.jar} files which means that
-these are \texttt{java} applications. To run \texttt{java} applications through linux terminal,
-use command \texttt{java -jar} \textit{filename.jar}. To sucessfully perfrom SNP
+To sucessfully perfrom SNP
 annotation, we need to provide \texttt{snpEff} with the command we are executing 
 (\texttt{ann} - telling \texttt{snpEff} that we want to annotate SNPs), its configuration file (\texttt{-c snpEff.config}),
 database we are annotating against (\texttt{GRCh38.76}) and our \textit{VCF} file. Since \texttt{snpEff} by default prints
 output to terminal, we can save it using \texttt{>} operator.
 To annotate called variants, type:\\~\\
+\texttt{cd \textasciitilde/\workDir/\reseqDir}\\
 \snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\
 
+\begin{framed}
+If you see see an error saying \texttt{GC overhead limit exceeded} than you will have to give this
+program more memory. To do this, type:\\~\\
+\snpEffGC{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}
+\end{framed}
 In the resulting \textit{VCF} file \texttt{snpEff} adds a new entry in the \texttt{INFO} field - \texttt{ANN}.
+Explanation of this field can be found in \textit{VCF} file's header. See \url{http://snpeff.sourceforge.net/SnpEff_manual.html}
+for more information about this tool and generated output files.
+
+We can also annotate our \textit{VCF} file by using information from another \textit{VCF} file.
+To do this, we will use \texttt{SnpSift}'s command \texttt{annotate}. 
+We need to supply \texttt{SnpSift}'s \texttt{annotate} with the database \textit{VCF} file from which
+the program will acquire information and \textit{VCF} file that we are going to annotate. We can
+choose whether to annotate \texttt{ID}, \texttt{INFO} or both fields. In the example we will
+annotate only \texttt{ID} fields by giving \texttt{-id} option to program.
+To annotate called variants with \texttt{SnpSift}'s \texttt{annotate}, type:\\~\\
+\SnpSiftAnnotate{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.id.vcf}\\
+
+
 To filter only those SNPs that are marked as nonsynonymous or stop gained we are going to
 use \texttt{SnpSift}'s command \texttt{filter}. \texttt{SnpSift}'s \texttt{filter} command needs
 \textit{VCF} file annotated by \texttt{snpEff} and filtering expression.
@@ -45,4 +68,7 @@ We will use expression \texttt{"(ANN[*].EFFECT = 'missense\_variant)' || (ANN[*]
 which can be translated as: if any "ANN" field for this variant, has effect of missense or stop gain, then print this variant
 to terminal. For more examples on filtering expressions, see \url{http://snpeff.sourceforge.net/SnpSift.html}.
 To perform variant filtering, type:\\~\\
-\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\
+\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.id.vcf}{\mapReads.bcftools\_snps.annotated.id.nonsyn\_stop.vcf}\\
+
+A new \texttt{VCF} file named \texttt{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf} will appear, where will be
+only missense and stop gain SNPs.

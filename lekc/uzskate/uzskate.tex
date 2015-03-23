@@ -1,5 +1,7 @@
 \documentclass{article}
-\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{verbatim}
+\usepackage[a4paper]{geometry} 
+%%%[a4paper, total={6in, 8in}]{geometry}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{framed}
 \usepackage{fontspec}
@@ -58,7 +60,7 @@
 }
 \newcommand{\samtoolssnp}[3]{\texttt{samtools mpileup -uf #1~\textbackslash \\
   \indent #2~\textbackslash \\
-  \indent | bcftools call -mv --skip-variants indels~\textbackslash \\
+  \indent | bcftools call --multiallelic-caller --variants-only --skip-variants indels~\textbackslash \\
 %  \indent | vcfutils.pl varFilter > #3
   \indent > #3
   }
@@ -72,6 +74,24 @@
   \indent > #2 
   }
 }
+
+\newcommand{\snpEffGC}[2]{\texttt{java -jar -Xmx3g \textasciitilde/programs/snpEff/snpEff.jar~\textbackslash \\
+  \indent ann~\textbackslash \\
+  \indent -c \textasciitilde/programs/snpEff/snpEff.config~\textbackslash \\
+  \indent GRCh38.76~\textbackslash \\
+  \indent #1~\textbackslash \\
+  \indent > #2
+  }
+}
+\newcommand{\SnpSiftAnnotate}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/SnpSift.jar~\textbackslash \\
+  \indent annotate~\textbackslash \\
+  \indent \textasciitilde/data/day1/snpEffData/00-All.vcf~\textbackslash \\
+  \indent -id~\textbackslash \\
+  \indent #1~\textbackslash \\
+  \indent > #2
+  }
+}
+%java -jar ~/programs/snpEff/SnpSift.jar annotate ~/data/day1/snpEffData/00-All.vcf -id reseq_reads.ann.vcf >reseq_reads.ann.id.vcf 
 
 \newcommand{\SnpSiftFilter}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/SnpSift.jar~\textbackslash \\
   \indent filter~\textbackslash \\
@@ -100,7 +120,12 @@
 %\snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\
 %\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\
 \begin{document}
-
+  \vspace*{\stretch{1.0}}
+  \begin{center}
+  \Large\textbf{Basics in command line handling, with the examples on NGS data analysis}\\~\\
+  \large\textit{Ivars Silamikelis, COST Basic training on NGS data analysis, Riga 2015}
+  \end{center}
+  \vspace*{\stretch{2.0}}
 %\input{title/title.tex}
   \input{linux/linux_basics.tex}
   \input{linux/env_setup.tex}

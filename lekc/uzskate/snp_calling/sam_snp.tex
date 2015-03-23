@@ -15,5 +15,11 @@ There are two choices of variant callers in \texttt{bcftools}:
 older variant calling model and assumes only biallelic sites. It can miss somatic mutations.
 \texttt{multiallelic-caller} does not have such an asumption and is more sensitive than \texttt{consensus-caller}.
 %that the analyzed sample is biallelic and can miss somatic mutations. In contrast the \texttt{multiallelic-caller}
-\texttt{multiallelic-caller} is recommended for most tasks, and we will also use it. For this tutorial, we will skip insertions/deletions: \\~\\
-\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}
+\texttt{multiallelic-caller} is recommended for most tasks, and we will also use it. 
+We will use option \texttt{--variants-only} to only detect sites where mapped reads differ from reference sequence.
+Using option \texttt{--skip-variants indels} we will skip insertions/deletions. If you want do want to
+see indels, then you can skip this option. To call SNPs only, in linux terminal type:\\~\\
+\samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}\\
+
+This will generate file named \texttt{\mapReads.bcftools\_snps.vcf} which is in \textit{VCF} format.
+See \url{http://samtools.github.io/hts-specs/VCFv4.2.pdf} for explanation of \textit{VCF} format.

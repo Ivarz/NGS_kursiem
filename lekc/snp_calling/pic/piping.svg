@@ -14,9 +14,34 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="piping.svg">
   <defs
      id="defs4">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect5404"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect5218"
+       is_visible="true" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4998"
+       is_visible="true" />
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path3837"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
     <inkscape:path-effect
        effect="spiro"
        id="path-effect3053"
@@ -50,8 +75,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="220.65909"
-     inkscape:cy="444.97407"
+     inkscape:cx="218.87338"
+     inkscape:cy="420.40553"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -87,7 +112,7 @@
        height="30"
        x="40.502525"
        y="507.03491"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
     <rect
@@ -97,37 +122,37 @@
        height="30"
        x="45"
        y="602.36218"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="50"
-       y="527.36218"
+       x="46.601158"
+       y="526.50854"
        id="text2991"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999"><tspan
          sodipodi:role="line"
          id="tspan2993"
-         x="50"
-         y="527.36218">reference</tspan></text>
+         x="46.601158"
+         y="526.50854">Reference</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="50"
-       y="622.36218"
+       x="48.195312"
+       y="621.83582"
        id="text2995"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999"><tspan
          sodipodi:role="line"
          id="tspan2997"
-         x="50"
-         y="622.36218">NGS reads</tspan></text>
+         x="48.195312"
+         y="621.83582">NGS reads</tspan></text>
     <path
        sodipodi:type="arc"
        style="fill:none;stroke:#000000;stroke-width:3.0999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
@@ -141,66 +166,73 @@
        sodipodi:end="7.9458277"
        sodipodi:open="true"
        transform="translate(32.314682,13.9646)"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="197.47462"
-       y="553.16931"
-       id="text3001"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+    <g
+       id="g4978"
+       transform="translate(-1.5329743,4.7750739)"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
-       inkscape:export-ydpi="402.39999"><tspan
-         sodipodi:role="line"
-         id="tspan3003"
-         x="197.47462"
-         y="553.16931">read</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="200"
-       y="572.36218"
-       id="text3005"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
-       inkscape:export-xdpi="402.39999"
-       inkscape:export-ydpi="402.39999"><tspan
-         sodipodi:role="line"
-         id="tspan3007"
+       inkscape:export-ydpi="402.39999">
+      <text
+         inkscape:export-ydpi="402.39999"
+         inkscape:export-xdpi="402.39999"
+         inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+         sodipodi:linespacing="125%"
+         id="text3001"
+         y="557.36218"
          x="200"
-         y="572.36218">mapper</tspan></text>
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="557.36218"
+           x="200"
+           id="tspan3003"
+           sodipodi:role="line">Read</tspan></text>
+      <text
+         inkscape:export-ydpi="402.39999"
+         inkscape:export-xdpi="402.39999"
+         inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+         sodipodi:linespacing="125%"
+         id="text3005"
+         y="572.36218"
+         x="200"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="572.36218"
+           x="200"
+           id="tspan3007"
+           sodipodi:role="line">mapper</tspan></text>
+    </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
        d="m 115,522.36218 60,25"
        id="path3009"
        inkscape:path-effect="#path-effect3011"
        inkscape:original-d="m 115,522.36218 60,25"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
        d="m 120,617.36218 55,-30"
        id="path3013"
        inkscape:path-effect="#path-effect3015"
        inkscape:original-d="m 120,617.36218 55,-30"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:none;marker-end:url(#Arrow2Mend)"
        d="m 275,567.36218 65,0"
        id="path3025"
        inkscape:path-effect="#path-effect3027"
        inkscape:original-d="m 275,567.36218 65,0"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
     <rect
@@ -210,45 +242,52 @@
        height="45"
        x="345"
        y="547.36218"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="356.58386"
-       y="568.49908"
-       id="text3031"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+    <g
+       id="g4984"
+       transform="translate(6.2716064,-1.4868774)"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
-       inkscape:export-ydpi="402.39999"><tspan
-         sodipodi:role="line"
-         x="356.58386"
+       inkscape:export-ydpi="402.39999">
+      <text
+         inkscape:export-ydpi="402.39999"
+         inkscape:export-xdpi="402.39999"
+         inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+         sodipodi:linespacing="125%"
+         id="text3031"
          y="568.49908"
-         id="tspan3035">mapped</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="358.09909"
-       y="583.1463"
-       id="text3039"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
-       inkscape:export-xdpi="402.39999"
-       inkscape:export-ydpi="402.39999"><tspan
-         sodipodi:role="line"
-         id="tspan3041"
+         x="356.58386"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           id="tspan3035"
+           y="568.49908"
+           x="356.58386"
+           sodipodi:role="line">Mapped</tspan></text>
+      <text
+         inkscape:export-ydpi="402.39999"
+         inkscape:export-xdpi="402.39999"
+         inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+         sodipodi:linespacing="125%"
+         id="text3039"
+         y="583.1463"
          x="358.09909"
-         y="583.1463">reads</tspan></text>
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="583.1463"
+           x="358.09909"
+           id="tspan3041"
+           sodipodi:role="line">reads</tspan></text>
+    </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
        d="m 365,602.36218 -30,40"
        id="path3043"
        inkscape:path-effect="#path-effect3045"
        inkscape:original-d="m 365,602.36218 -30,40"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
     <path
@@ -264,36 +303,170 @@
        sodipodi:end="7.9375585"
        sodipodi:open="true"
        transform="translate(-11.428558,-16.785732)"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999" />
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="270"
-       y="672.36218"
+       x="271.43472"
+       y="677.5498"
        id="text3861"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999"><tspan
          sodipodi:role="line"
          id="tspan3863"
-         x="270"
-         y="672.36218">variant</tspan></text>
+         x="271.43472"
+         y="677.5498">Variant</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="270"
-       y="693.79071"
+       x="271.43472"
+       y="692.5498"
        id="text3865"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
        inkscape:export-xdpi="402.39999"
        inkscape:export-ydpi="402.39999"><tspan
          sodipodi:role="line"
          id="tspan3867"
-         x="270"
-         y="693.79071">caller</tspan></text>
+         x="271.43472"
+         y="692.5498">caller</tspan></text>
+    <g
+       id="g5614"
+       transform="translate(6.4347229,-14.812378)"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-ydpi="402.39999">
+      <path
+         sodipodi:type="arc"
+         style="fill:none;stroke:#000000;stroke-width:3.0999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="path3857-6"
+         sodipodi:cx="302.5"
+         sodipodi:cy="699.86218"
+         sodipodi:rx="42.5"
+         sodipodi:ry="42.5"
+         d="m 298.48783,742.17238 c -23.36728,-2.21587 -40.51389,-22.9551 -38.29802,-46.32237 2.21586,-23.36728 22.95509,-40.51388 46.32236,-38.29802 23.36728,2.21586 40.51389,22.95509 38.29802,46.32237 -2.19869,23.18625 -22.6491,40.28374 -45.85807,38.33948"
+         sodipodi:start="1.6653412"
+         sodipodi:end="7.9375585"
+         sodipodi:open="true"
+         transform="translate(-256.25684,35.526672)"
+         inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+         inkscape:export-xdpi="402.39999"
+         inkscape:export-ydpi="402.39999" />
+      <text
+         inkscape:export-ydpi="402.39999"
+         inkscape:export-xdpi="402.39999"
+         inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+         sodipodi:linespacing="125%"
+         id="text3861-3"
+         y="732.36218"
+         x="25"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="732.36218"
+           x="25"
+           id="tspan3863-7"
+           sodipodi:role="line">Variant</tspan></text>
+      <text
+         inkscape:export-ydpi="402.39999"
+         inkscape:export-xdpi="402.39999"
+         inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/pipe1/pic/pipe_overview.png"
+         sodipodi:linespacing="125%"
+         id="text3865-7"
+         y="749.67456"
+         x="15.171722"
+         style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="749.67456"
+           x="15.171722"
+           id="tspan3867-7"
+           sodipodi:role="line">annotator</tspan></text>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       inkscape:original-d="m 116.60644,679.8622 -24.999995,10"
+       inkscape:path-effect="#path-effect5218"
+       id="path5216"
+       d="m 116.60644,679.8622 -24.999995,10"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-ydpi="402.39999" />
+    <path
+       inkscape:connector-curvature="0"
+       inkscape:original-d="m 101.60644,729.8622 40,5"
+       inkscape:path-effect="#path-effect5404"
+       id="path5402"
+       d="m 101.60644,729.8622 40,5"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-ydpi="402.39999" />
+    <rect
+       inkscape:export-ydpi="402.39999"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       y="725.38855"
+       x="150.7793"
+       height="30"
+       width="70"
+       id="rect2989-2-8"
+       style="fill:none;stroke:#000000;stroke-width:3.0999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    <text
+       inkscape:export-ydpi="402.39999"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       sodipodi:linespacing="125%"
+       id="text2995-0-3"
+       y="737.36218"
+       x="155"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       xml:space="preserve"><tspan
+         y="737.36218"
+         x="155"
+         id="tspan2997-7-2"
+         sodipodi:role="line">Annotated</tspan><tspan
+         id="tspan5612"
+         y="752.36218"
+         x="155"
+         sodipodi:role="line">variants</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:3.0999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect2989-2"
+       width="70"
+       height="30"
+       x="128.45856"
+       y="657.88855"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-ydpi="402.39999" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+       x="135"
+       y="677.36218"
+       id="text2995-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-ydpi="402.39999"><tspan
+         sodipodi:role="line"
+         id="tspan2997-7"
+         x="135"
+         y="677.36218">Variants</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+       d="m 245,672.36218 -38.21428,0.35714"
+       id="path4996"
+       inkscape:path-effect="#path-effect4998"
+       inkscape:original-d="m 245,672.36218 c -13.33333,1.22349 -24.88095,-3.52361 -38.21428,0.35714"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/ivars/Data/NGS_kursi/lekc/snp_calling/pic/pipe_overview2.png"
+       inkscape:export-xdpi="402.39999"
+       inkscape:export-ydpi="402.39999" />
   </g>
 </svg>
