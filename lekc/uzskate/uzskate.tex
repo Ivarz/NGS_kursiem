@@ -66,7 +66,7 @@
   }
 }
 
-\newcommand{\snpEff}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/snpEff.jar~\textbackslash \\
+\newcommand{\snpEff}[2]{\texttt{java -jar \textasciitilde/\progDir/snpEff/snpEff.jar~\textbackslash \\
   \indent ann~\textbackslash \\
   \indent -c \textasciitilde/programs/snpEff/snpEff.config~\textbackslash \\
   \indent GRCh38.76~\textbackslash \\
@@ -75,7 +75,7 @@
   }
 }
 
-\newcommand{\snpEffGC}[2]{\texttt{java -jar -Xmx3g \textasciitilde/programs/snpEff/snpEff.jar~\textbackslash \\
+\newcommand{\snpEffGC}[2]{\texttt{java -jar -Xmx3g \textasciitilde/\progDir/snpEff/snpEff.jar~\textbackslash \\
   \indent ann~\textbackslash \\
   \indent -c \textasciitilde/programs/snpEff/snpEff.config~\textbackslash \\
   \indent GRCh38.76~\textbackslash \\
@@ -83,9 +83,9 @@
   \indent > #2
   }
 }
-\newcommand{\SnpSiftAnnotate}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/SnpSift.jar~\textbackslash \\
+\newcommand{\SnpSiftAnnotate}[2]{\texttt{java -jar \textasciitilde/\progDir/snpEff/SnpSift.jar~\textbackslash \\
   \indent annotate~\textbackslash \\
-  \indent \textasciitilde/data/day1/snpEffData/00-All.vcf~\textbackslash \\
+  \indent \textasciitilde/\dataDir/snpEffData/00-All.vcf~\textbackslash \\
   \indent -id~\textbackslash \\
   \indent #1~\textbackslash \\
   \indent > #2
@@ -93,10 +93,28 @@
 }
 %java -jar ~/programs/snpEff/SnpSift.jar annotate ~/data/day1/snpEffData/00-All.vcf -id reseq_reads.ann.vcf >reseq_reads.ann.id.vcf 
 
-\newcommand{\SnpSiftFilter}[2]{\texttt{java -jar \textasciitilde/programs/snpEff/SnpSift.jar~\textbackslash \\
+%java -jar ~/programs/snpEff/SnpSift.jar dbnsfp reseq_reads.ann.id.vcf >reseq_reads.ann.id.dbnsfp.vcf
+\newcommand{\SnpSiftAnnotateDBNSFP}[2]{\texttt{java -jar \textasciitilde/\progDir/snpEff/SnpSift.jar~\textbackslash \\
+  \indent dbnsfp~\textbackslash \\
+  \indent #1~\textbackslash \\
+  \indent > #2
+  }
+}
+
+%database.local.dbnsfp = \textasciitilde/\dataDir/snpEffData/dbNSFP2.7.txt.gz
+
+\newcommand{\SnpSiftFilter}[2]{\texttt{java -jar \textasciitilde/\progDir/snpEff/SnpSift.jar~\textbackslash \\
   \indent filter~\textbackslash \\
   \indent -f #1~\textbackslash \\
   \indent "(ANN[*].EFFECT = 'missense\_variant') || (ANN[*].EFFECT = 'stop\_gained')"~\textbackslash \\
+  \indent > #2
+  }
+}
+
+\newcommand{\SnpSiftExtractFields}[2]{\texttt{java -jar \textasciitilde/\progDir/snpEff/SnpSift.jar 
+  \indent extractFields~\textbackslash \\
+  \indent #1~\textbackslash \\
+  \indent CHROM POS ID REF ALT dbNSFP\_SIFT\_pred GEN[*].GT~\textbackslash \\
   \indent > #2
   }
 }
@@ -120,6 +138,7 @@
 %\snpEff{\mapReads.bcftools\_snps.vcf}{\mapReads.bcftools\_snps.annotated.vcf}\\
 %\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf}\\
 \begin{document}
+  \sloppy
   \vspace*{\stretch{1.0}}
   \begin{center}
   \Large\textbf{Basics in command line handling, with the examples on NGS data analysis}\\~\\

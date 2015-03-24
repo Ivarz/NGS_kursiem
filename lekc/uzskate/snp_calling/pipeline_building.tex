@@ -27,9 +27,9 @@ open text editor and copy following lines (note that text starting
 with \texttt{\#} is a comment line where you can write anything you want to make
 the code more readable (except the first line)):
 
-\begin{samepage}
+%\begin{samepage}
 \verbatiminput{snp_calling/pipelines/snp_pipeline.sh}
-\end{samepage}
+%\end{samepage}
 %\lstinputlisting{snp_calling/pipelines/snp_pipeline.sh}
 %\begin{listing}
 %\texttt{\#!/bin/bash}\\~\\
@@ -51,9 +51,9 @@ sample name in a variable, and use that variable throughout the script. In \bash
 we assign value to a variable with \texttt{=} operator, and retrieve value from variable
 by adding \texttt{\$} at the beginning of variable's name:
 
-\begin{samepage}
+%\begin{samepage}
 \verbatiminput{snp_calling/pipelines/pipeline2.1.sh}
-\end{samepage}
+%\end{samepage}
 %\lstinputlisting{snp_calling/pipelines/pipeline2.1.sh}
 %\texttt{\#!/bin/bash}\\~\\
 %\texttt{sample\_name=\mapReads}\\~\\
@@ -69,9 +69,9 @@ We can go even further - we can provide sample name as an argument
 to our pipeline. There is a predefined \bash~ variable (\texttt{\$1})
 that stores everything we supply as an argument for our script:
 
-\begin{samepage}
+%\begin{samepage}
 \verbatiminput{snp_calling/pipelines/pipeline3.sh}
-\end{samepage}
+%\end{samepage}
 
 To launch it, type:\\~\\
 \texttt{bash \pipename~\mapReads.fastq}\\

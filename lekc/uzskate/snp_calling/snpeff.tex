@@ -2,6 +2,7 @@
 After generating a list of SNPs in \textit{VCF} format,
 we will use a tool \texttt{snpEff} to predict whether they are causing
 amino acid change and \texttt{SnpSift} to filter nonsynonymous and stop gained SNPs.
+
 \subsubsection{Setting up and configuring \texttt{snpEff} and \texttt{SnpSift}}
 \texttt{snpEff} and \texttt{SnpSift} are bundled together and are available at \url{http://snpeff.sourceforge.net}.
 To download and install them, type in linux terminal:\\~\\
@@ -18,21 +19,28 @@ and we can leave the software in \texttt{\progDir} directory.
 these are \texttt{java} applications. To run \texttt{java} applications through linux terminal,
 use command \texttt{java -jar} \textit{filename.jar}. 
 \texttt{snpEff} requires databases to predict effects of SNPs.
-We will use human genome's (version \texttt{GRCh38.76}) database to annotate SNPs.
-To download it, use \texttt{snpEff}'s command \texttt{download} (it is quite large file (\textasciitilde 715~MB) and it may take some
-time to download it depending on the speed of internet connection)\\~\\
-%The needed database is already downloaded for us and resides in
-%\texttt{\textasciitilde/\dataDir/\snpEffData}. Our task is to 
-%configure \texttt{snpEff} to tell it where this database can be found.
-%After downloading and unzipping of \texttt{snpEff} we will need to
-%edit \texttt{snpEff's} configuration file named \texttt{snpEff.config}
-%and change entry \texttt{data.dir = ./data/} to \texttt{data.dir = \textasciitilde/\dataDir/\snpEffData/}
+We will use human genome's (version \texttt{GRCh38.76}) database to annotate SNPs
+and \texttt{snpEff}'s database \texttt{dbNSFP}.
+The needed databases are already downloaded for us and resides in
+\texttt{\textasciitilde/\dataDir/\snpEffData}. Our task is to 
+configure \texttt{snpEff} to tell it where these databases can be found.
+
+After downloading and unzipping of \texttt{snpEff} we will need to
+edit \texttt{snpEff's} configuration file named \texttt{snpEff.config}
+and change entry \texttt{data.dir = ./data/} to \texttt{data.dir = \textasciitilde/\dataDir/\snpEffData/}.
+We will also add line \texttt{database.local.dbnsfp = \textasciitilde/\dataDir/snpEffData/dbNSFP2.7.txt.gz} to
+tell \texttt{snpEff} to look for databases in these locations.
+
+%In case you don't have these databases, 
+%download them, using \texttt{snpEff}'s command \texttt{download} (it is quite large file (\textasciitilde 715~MB) and it may take some
+%time to download it depending on the speed of internet connection)\\~\\
 %In linux terminal type:\\~\\
-\texttt{cd \textasciitilde/\progDir/snpEff}\\
-\texttt{java -jar snpEff.jar download GRCh38.76}\\
+%\texttt{cd \textasciitilde/\progDir/snpEff}\\
+%\texttt{java -jar snpEff.jar download GRCh38.76}\\
 %\texttt{nano snpEff.config}
 
 %TODO aprakstīt abas komandas
+\subsubsection{SNP annotation and filtering}
 To sucessfully perfrom SNP
 annotation, we need to provide \texttt{snpEff} with the command we are executing 
 (\texttt{ann} - telling \texttt{snpEff} that we want to annotate SNPs), its configuration file (\texttt{-c snpEff.config}),
@@ -60,6 +68,10 @@ annotate only \texttt{ID} fields by giving \texttt{-id} option to program.
 To annotate called variants with \texttt{SnpSift}'s \texttt{annotate}, type:\\~\\
 \SnpSiftAnnotate{\mapReads.bcftools\_snps.annotated.vcf}{\mapReads.bcftools\_snps.annotated.id.vcf}\\
 
+\texttt{SnpSift} can also give information about SNP's: frequency in 1000 Genomes database,
+\textit{SIFT}, \textit{Polyphen}, \textit{GERP} scores, etc. To perform this kind of annotation, we will use \texttt{SnpSift}'s command 
+\texttt{dbnsfp}. To annotate with \texttt{SnpSift}'s \texttt{dbnsfp}, type:\\~\\
+\SnpSiftAnnotateDBNSFP{\mapReads.bcftools\_snps.annotated.id.vcf}{\mapReads.bcftools\_snps.annotated.id.dbnsfp.vcf}\\
 
 To filter only those SNPs that are marked as nonsynonymous or stop gained we are going to
 use \texttt{SnpSift}'s command \texttt{filter}. \texttt{SnpSift}'s \texttt{filter} command needs
@@ -68,7 +80,18 @@ We will use expression \texttt{"(ANN[*].EFFECT = 'missense\_variant)' || (ANN[*]
 which can be translated as: if any "ANN" field for this variant, has effect of missense or stop gain, then print this variant
 to terminal. For more examples on filtering expressions, see \url{http://snpeff.sourceforge.net/SnpSift.html}.
 To perform variant filtering, type:\\~\\
-\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.id.vcf}{\mapReads.bcftools\_snps.annotated.id.nonsyn\_stop.vcf}\\
+\SnpSiftFilter{\mapReads.bcftools\_snps.annotated.id.dbnsfp.vcf}{\mapReads.bcftools\_snps.annotated.id.dbnsfp.nonsyn\_stop.vcf}\\
 
-A new \texttt{VCF} file named \texttt{\mapReads.bcftools\_snps.annotated.nonsyn\_stop.vcf} will appear, where will be
-only missense and stop gain SNPs.
+A new \texttt{VCF} file named \texttt{\mapReads.bcftools\_snps.annotated.id.dbnsfp.nonsyn\_stop.vcf} will appear, in which 
+there will be only missense and stop gain SNPs.
+
+Now, suppose that we want to extract only chromosome, position, reference and alternate alleles, \textit{SIFT}
+prediction and genotype from \textit{VCF} file. We can achieve it with \texttt{SnpSift}'s \texttt{extractFields} command,
+which takes a \textit{VCF} file and a list of fields it needs extract. 
+Type in terminal:\\~\\
+\SnpSiftExtractFields{\mapReads.bcftools\_snps.annotated.id.dbnsfp.nonsyn\_stop.vcf}{\mapReads.bcftools\_snps.annotated.id.dbnsfp.nonsyn\_stop.txt}\\
+
+A tab delimited file named \texttt{\mapReads.bcftools\_snps.annotated.id.dbnsfp.nonsyn\_stop.txt will appear}
+which can be easily viewed in spreadsheet software.
+%extractFields
+%TODO vcf faila filtreshanas piemerus

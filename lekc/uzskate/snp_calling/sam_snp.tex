@@ -17,7 +17,7 @@ older variant calling model and assumes only biallelic sites. It can miss somati
 %that the analyzed sample is biallelic and can miss somatic mutations. In contrast the \texttt{multiallelic-caller}
 \texttt{multiallelic-caller} is recommended for most tasks, and we will also use it. 
 We will use option \texttt{--variants-only} to only detect sites where mapped reads differ from reference sequence.
-Using option \texttt{--skip-variants indels} we will skip insertions/deletions. If you want do want to
+Using option \texttt{--skip-variants indels} we will skip insertions/deletions. If you do want to
 see indels, then you can skip this option. To call SNPs only, in linux terminal type:\\~\\
 \samtoolssnp{\refRel}{\mapReads\_mapped.reheaded.sorted.bam}{\mapReads.bcftools\_snps.vcf}\\
 

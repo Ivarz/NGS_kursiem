@@ -22,7 +22,7 @@ samtools mpileup -uf ref/chr_merged.fa \
   | bcftools call --multiallelic-caller --variants-only --skip-variants indels \
   > $sample_name.bcftools_snps.vcf
 
-#SNP annotating with snpEff
+#SNP annotating with snpEff and SnpSift
 java -jar ~/programs/snpEff/snpEff.jar \
   ann \
   -c ~/programs/snpEff/snpEff.config \
@@ -37,9 +37,21 @@ java -jar ~/programs/snpEff/SnpSift.jar \
   $sample_name.bcftools_snps.annotated.vcf \
   > $sample_name.bcftools_snps.annotated.id.vcf
 
+java -jar ~/programs/snpEff/SnpSift.jar \
+dbnsfp \
+reseq_reads.bcftools_snps.annotated.id.vcf \
+> $sample_name.bcftools_snps.annotated.id.dbnsfp.vcf
+
 #filtering of missense and stop SNPs
 java -jar ~/programs/snpEff/SnpSift.jar \
   filter \
-  -f $sample_name.bcftools_snps.annotated.vcf \
-  "ANN[*].EFFECT='missense_variant'||ANN[*].EFFECT='stop_gained'" \
-  > $sample_name.bcftools_snps.annotated.id.nonsyn_stop.vcf
+  -f $sample_name.bcftools_snps.annotated.id.dbnsfp.vcf \
+  "(ANN[*].EFFECT='missense_variant')||(ANN[*].EFFECT='stop_gained')" \
+  > $sample_name.bcftools_snps.annotated.id.dbnsfp.nonsyn_stop.vcf
+
+#Table creation
+java -jar ~/programs/snpEff/SnpSift.jar
+	extractFields \
+	$sample_name.bcftools_snps.annotated.id.dbnsfp.nonsyn_stop.vcf \
+	CHROM POS ID REF ALT dbNSFP_SIFT_pred GEN[*].GT \
+	> $sample_name.bcftools_snps.annotated.id.dbnsfp.nonsyn_stop.txt
