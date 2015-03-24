@@ -38,9 +38,9 @@ java -jar ~/programs/snpEff/SnpSift.jar \
   > $sample_name.bcftools_snps.annotated.id.vcf
 
 java -jar ~/programs/snpEff/SnpSift.jar \
-dbnsfp \
-reseq_reads.bcftools_snps.annotated.id.vcf \
-> $sample_name.bcftools_snps.annotated.id.dbnsfp.vcf
+  dbnsfp \
+  $sample_name.bcftools_snps.annotated.id.vcf \
+  > $sample_name.bcftools_snps.annotated.id.dbnsfp.vcf
 
 #filtering of missense and stop SNPs
 java -jar ~/programs/snpEff/SnpSift.jar \
